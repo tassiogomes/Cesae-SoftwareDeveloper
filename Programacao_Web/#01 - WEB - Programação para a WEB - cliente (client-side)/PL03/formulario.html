@@ -7,78 +7,61 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="obrigado.html">
+    <form action="">
+
         <fieldset>
-            <legend>Formulário do CESAE</legend>
+            <legend>Formulário de Contacto</legend>
             <div>
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome" placeholder="Insira o seu nome">
+                <label for="form-nome">Nome: </label>
+                <input type="text" name="form-nome" id="form-nome" required placeholder="Insira seu nome">
             </div>
             <div>
-                <label for="pass">Password:</label>
-                <input type="password" name="pass" id="pass" required>*
-            </div>
-
+                <label for="form-email">Email: </label>
+                <input type="email" name="form-email" id="form-email" required placeholder="Insira seu email">
+            </div>        
+            <br>    
             <div>
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" value="@cesae.pt">
+                <label for="form-genero">Gênero: </label>
+                <br>
+                <input type="radio" name="form-genero" id="form-genero"> Masculino <br>
+                <input type="radio" name="form-genero" id="form-genero"> Feminino
             </div>
-
+            <br>
             <div>
-                <label for="idade">Idade:</label>
-                <input type="number" name="idade" id="idade">
-            </div>
-            
-            <div>
-                <label for="dn">DN:</label>
-                <input type="date" name="dn" id="dn">
-            </div>
-            
-            <div>
-                <label for="cv">CV:</label>
-                <input type="file" name="cv" id="cv">
-            </div>
-
-            <div>
-                <label for="cor">Cor favorita</label><br>
-                <input type="radio" name="cor" id="cor-v">Vermelho <br>
-                <input type="radio" name="cor" id="cor-a">Azul <br>
-                <input type="radio" name="cor" id="cor-p">Preto <br>
-                <input type="radio" name="cor" id="cor-am">Amarelo <br>
-                <input type="radio" required name="cor" id="cor-ve">Verde <br>
+                <label for="form-dn">Data atual: </label>
+                <input type="date" name="form-dn" id="form-dn">
             </div>
             <div>
-                <label for="cor2">Segunda Cor favorita</label><br>
-                <input type="radio" name="cor2" id="cor2-v">Vermelho <br>
-                <input type="radio" name="cor2" id="cor2-a">Azul <br>
-                <input type="radio" name="cor2" id="cor2-p">Preto <br>
-                <input type="radio" name="cor2" id="cor2-am">Amarelo <br>
-                <input type="radio" name="cor2" id="cor2-ve">Verde <br>
+                <label for="form-turma">Turma: </label>
+                <input type="text" list= "turma" name="form-turma" id="form-turma" placeholder="Escolha uma turma">
+                    <datalist id="turma">
+                        <option value="WebDeveloperMobile">Web Developer & Mobile </option>
+                        <option value="NetwortkCiberSecurity">Network & Cyber Security Adm</option>
+                        <option value="SoftwareDeveloper">Software Developer</option>
+                    </datalist>
+            </div>
+            <div>
+                <label for="form-mensagem">Mensagem: </label><br>
+                <textarea name="form-mensagem" id="form-mensagem" cols="30" rows="6"></textarea>
+            </div>
+            <div>
+                <input type="reset" value="Limpar">
+                <input type="submit" value="Enviar">
             </div>
 
-            <div>
-                <label for="cor3">Outras Cores favorita</label><br>
-                <input type="checkbox" name="cor3" id="cor3-v">Vermelho <br>
-                <input type="checkbox" name="cor3" id="cor3-a">Azul <br>
-                <input type="checkbox" name="cor3" id="cor3-p">Preto <br>
-                <input type="checkbox" name="cor3" id="cor3-am">Amarelo <br>
-                <input type="checkbox" name="cor3" id="cor3-ve">Verde <br>
-            </div>-->
-            <div>
-                <label for="">Dia da semana</label><br>
-                <select name="dia" id="dia">
-                    <option value="" disabled selected>Selecione um dia</option>
-                    <option value="seg">Segunda-feira</option>
-                    <option value="ter">Terça-feira</option>
-                    <option value="quar">Quarta-feira</option>
-                </select>
-            </div>
-            <div>
-                <textarea name="" id="" cols="10" rows="10"></textarea>
-            </div>
-            <input type="reset" value="Limpar">
-            <input type="submit" value="Enviar">
         </fieldset>
+
+
+
+
+
+
     </form>
+
+
+
+
+
+
 </body>
 </html>
