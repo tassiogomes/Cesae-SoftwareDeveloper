@@ -17,18 +17,18 @@ class Main {
     System.out.println("Introduza o 1º número: \n");
     n1 = input.nextInt();
     System.out.println("Introduza o 2º número: \n");
-    n2 = input.nextInt();
-    System.out.println("Introduza uma operação + | * | / ");
-    operacao = input.next();      
+    n2 = input.nextInt();   
     System.out.println("--------------------------------------------------");
     
-
     // Controle
     do{
       do{
           System.out.println("Introduza uma operação + | - | * | / ");
-          n2 = input.next();      
+          operacao = input.next();      
           System.out.println("--------------------------------------------------");
+            if(operacao != operacao.equals("+") || operacao != operacao.equals("-") || operacao != operacao.equals("*") || operacao != operacao.equals("/")){
+              System.out.println("Operador inválido, tente novamente!");
+            };        
       }while(operacao != operacao.equals("+") || operacao != operacao.equals("-") || operacao != operacao.equals("*") || operacao != operacao.equals("/"));
     switch(operacao){
       case "+":
@@ -41,13 +41,13 @@ class Main {
         break;
       case "*":
         resultado = (n1*n2);
-        System.out.println("A subtração (*) dos dois números é: " + resultado);
+        System.out.println("A multiplicação (*) dos dois números é: " + resultado);
         break;
       case "/":
         resultado = (n1/n2);
         System.out.println("A subtração (/) dos dois números é: " + resultado);
         break;
     }
-    }
+    }while (operacao == operacao.equals("+") || operacao == operacao.equals("-") || operacao == operacao.equals("*") || operacao == operacao.equals("/"));
   }
-}
+  }
