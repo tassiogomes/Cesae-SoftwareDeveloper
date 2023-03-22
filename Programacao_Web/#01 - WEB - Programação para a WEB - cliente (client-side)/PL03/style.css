@@ -1,0 +1,8 @@
+ header{
+        text-align: center;
+        background-color:#f0f8ff;
+        margin: 30px;
+}
+header>img{
+    width: 300px;
+}

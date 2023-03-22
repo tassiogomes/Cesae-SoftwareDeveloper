@@ -1,0 +1,27 @@
+
+body{
+        background-color:bisque;
+        font-family: 'Lucida Sans';
+}
+header, footer{
+    text-align: center;
+}
+header>img{
+    width: 50%;
+}
+nav, footer{
+    background-color: gray;
+    padding: 20px;
+}
+.branca{
+    color: brown;
+}
+nav a{
+    color: white;
+}
+p{
+    text-align: justify;
+}
+
+
+
