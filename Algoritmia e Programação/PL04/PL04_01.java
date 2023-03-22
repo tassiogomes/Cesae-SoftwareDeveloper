@@ -10,7 +10,7 @@ class Main {
     Scanner input = new Scanner(System.in);
 
     // Declarar variáveis
-    double n1, n2, resultado;
+    int n1, n2, resultado;
     String operacao, decisao = "y";
     
     // Entrada de dados
@@ -20,9 +20,9 @@ class Main {
     do{
       do{
             System.out.println("Introduza o 1º número: \n");
-            n1 = input.nextDouble();
+            n1 = input.nextInt();
             System.out.println("Introduza o 2º número: \n");
-            n2 = input.nextDouble();   
+            n2 = input.nextInt();   
             System.out.println("--------------------------------------------------");
             System.out.println("Introduza uma operação | + | - | * | / |");
             operacao = input.next();      
@@ -32,7 +32,7 @@ class Main {
               System.out.println("Gostaria de tentar de novo? (y/n)\n");
               decisao = input.next();
           };         
-      }while(!operacao.equals("+") && !operacao.equals("-") && !operacao.equals("*") && !operacao.equals("/"));
+      }while(!operacao.equals("+") && !operacao.equals("-") && !operacao.equals("*") && !operacao.equals("/")  && !decisao.equals("n"));
     switch(operacao){
       case "+":
         resultado = (n1+n2);
