@@ -13,6 +13,9 @@ nav, footer{
     background-color: gray;
     padding: 20px;
 }
+nav a:hover{
+    background-color: aqua;
+}
 .branca{
     color: brown;
 }
