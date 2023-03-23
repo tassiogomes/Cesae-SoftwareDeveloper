@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="/imagens/favicon.ico">
+</head>
+<body>
+    <header>
+    <!--Adicionando o logo direto da pasta local-->
+    <img src="Imagens/logo_cesae-cores_horizontal_header_site.png" width="600px" alt="Logo Cesae">
+    <br>
+        <nav>
+            <!--Hiperligação externa pro site Cesae-->
+            <a href="https://www.cesaedigital.pt/" target="_blank" >Ir para página oficial</a>
+            <br>
+            <a href="site_cesae.html" target="_blank" >Site</a>
+            <a href="multimedia.html" target="_blank" >Multimedia</a>
+            <a href="formulario.html" target="_blank" >Formulário</a><br>
+            <!-- REDES SOCIAIS-->
+            <!--Criação dos links-->
+            <!--No lugar do texto do link, colocar a tag img -->
+            <a href="https://www.facebook.com/CesaeDigital" target="_blank"> <img src="Imagens/logo_facebook.png" height="50px" alt="Logo Facebook"></a>
+
+            <a href="https://www.linkedin.com/company/cesae-digital/" target="_blank"><img src="Imagens/logo_linkedin.png" height="50px" alt="Logo logo Linkedin"></a>
+
+            <a href="https://www.youtube.com/user/CESAECanal" target="_blank"><img src="Imagens/logo_youtube.png" height="50px" alt="Logo logo Youtube"></a>
+        </nav>
+    </header>
+    <hr>
+<body>
+    <form action="">
+
+        <fieldset>
+            <legend>Formulário de Contacto</legend>
+            <div>
+                <label for="form-nome">Nome: </label>
+                <input type="text" name="form-nome" id="form-nome" required placeholder="Insira seu nome">
+            </div>
+            <div>
+                <label for="form-email">Email: </label>
+                <input type="email" name="form-email" id="form-email" required placeholder="Insira seu email">
+            </div>        
+            <br>    
+            <div>
+                <label for="form-genero">Gênero: </label>
+                <br>
+                <input type="radio" name="form-genero" id="form-genero"> Masculino <br>
+                <input type="radio" name="form-genero" id="form-genero"> Feminino
+            </div>
+            <br>
+            <div>
+                <label for="form-dn">Data atual: </label>
+                <input type="date" name="form-dn" id="form-dn">
+            </div>
+            <div>
+                <label for="form-turma">Turma: </label>
+                <input type="text" list= "turma" name="form-turma" id="form-turma" placeholder="Escolha uma turma">
+                    <datalist id="turma">
+                        <option value="WebDeveloperMobile">Web Developer & Mobile </option>
+                        <option value="NetwortkCiberSecurity">Network & Cyber Security Adm</option>
+                        <option value="SoftwareDeveloper">Software Developer</option>
+                    </datalist>
+            </div>
+            <div>
+                <label for="form-mensagem">Mensagem: </label><br>
+                <textarea name="form-mensagem" id="form-mensagem" cols="30" rows="6"></textarea>
+            </div>
+            <div>
+                <input type="reset" value="Limpar">
+                <input type="submit" value="Enviar">
+            </div>
+
+        </fieldset>
+    </form>
+    <p><h1>Associados</h1></p>
+
+            <img src="Imagens/logo_iefp.png" width="300px" alt="Logo IEFP"><img src="Imagens/logo_aep.png" width="300px" alt="">           
+            <hr>
+        <footer>
+            Desenvolvido por Tassio Gomes
+        </footer>
+</body>
+</html>
