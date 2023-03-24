@@ -1,0 +1,44 @@
+CREATE TABLE seccao (
+  numSec INT PRIMARY KEY,
+  nome VARCHAR(50) NOT NULL,
+  cidade VARCHAR(50) NOT NULL
+);
+
+
+CREATE TABLE empregado (
+  numEmp INT PRIMARY KEY,
+  nome VARCHAR(50) NOT NULL,
+  seccao INT NOT NULL,
+  posto VARCHAR(50) NOT NULL,
+  chefe INT,
+  salario DECIMAL(10,2) NOT NULL,
+  comissao DECIMAL(10,2),
+  FOREIGN KEY (seccao) REFERENCES seccao(numSec),
+  FOREIGN KEY (chefe) REFERENCES empregado(numEmp)
+);
+
+
+INSERT INTO seccao (numSec, nome, cidade) VALUES
+(1, 'Vendas', 'Lisboa'),
+(2, 'Marketing', 'Porto'),
+(3, 'Recursos Humanos', 'Coimbra'),
+(4, 'Finanças', 'Braga'),
+(5, 'TI', 'Lisboa'),
+(6, 'Compras', 'Porto'),
+(7, 'Logística', 'Funchal'),
+(8, 'Jurídico', 'Lisboa'),
+(9, 'Produção', 'Porto'),
+(10, 'Qualidade', 'Lisboa');
+
+
+INSERT INTO empregado (numEmp, nome, seccao, posto, chefe, salario, comissao) VALUES
+(1, 'João Silva', 2, 'Gerente', NULL, 5000.00, NULL),
+(2, 'Ana Santos', 5, 'Analista de Sistemas', 1, 3500.00, 500.00),
+(3, 'Pedro Rocha', 3, 'Recrutador', 1, 3000.00, 250.00),
+(4, 'Marta Costa', 1, 'Vendedor', 2, 2000.00, 100.00),
+(5, 'Carlos Mendes', 4, 'Contador', NULL, 4000.00, NULL),
+(6, 'Sofia Lopes', 2, 'Assistente de Marketing', 1, 2500.00, 100.00),
+(7, 'Ricardo Almeida', 1, 'Vendedor', 2, 1800.00, 50.00),
+(8, 'Beatriz Gonçalves', 10, 'Engenheira de Qualidade', NULL, 4500.00, NULL),
+(9, 'Luís Fernandes', 6, 'Comprador', NULL, 3200.00, 200.00),
+(10, 'Mariana Pereira', 9, 'Operadora de Máquina', 8, 2000.00, 100.00);
