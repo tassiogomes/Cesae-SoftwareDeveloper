@@ -120,7 +120,7 @@ header img { /** faz cobrir a totalidade do navegador */
   background: #18d26e;
 } 
 
-  /** ------ header em responsivo ------ */
+  /** ------ header em responsivo ------ alternativa é usar o container-fuid md" */
 
 
   @media (max-width: 992px) { /** aplica toda a customização para quando seja < 992px */
@@ -144,7 +144,9 @@ header img { /** faz cobrir a totalidade do navegador */
     }
   }
 
-/* ================= #NAVBAR DESKTOP ====================*/
+
+/** ================= #NAVBAR DESKTOP ====================*/
+
 
 .navbar { /** ajusta o container navbar todo em relação aos outros elementos */
   padding: 0px; /** 0px deixa bem alinhado a esquerda */
@@ -181,30 +183,95 @@ header img { /** faz cobrir a totalidade do navegador */
   white-space: nowrap; /* impede que o texto seja quebrado, ajustado (wrap)*/
   transition: 0.3s; /* transição suave quando o rato passa por cima */
 }
-.navbar a:before {
-  content: "";
+.navbar a:before { /** faz um elemento aparecer antes de ser clicado, nesse caso é em e sublinhado */
+  content: ""; /** Experimentar escrever algo pra ver o before explicado acima */
   position: absolute;
   width: 0;
   height: 2px; /** grossura da linha sublinhada */
-  bottom: -4px; /** distância da linha pro nome */
+  bottom: -4px; /** distância da linha pro nome  o - faz efeito de sublinhar*/
   left: 0;
   background-color: #18d26e;
-  visibility: hidden;
+  visibility: hidden; /** mantem oculta até o que o rato passe em cima */
   width: 0px;
-  transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s; /** aplica transição suave em todas as propriedades acima */
 }
 .navbar a:hover:before,
 .navbar li:hover>a:before,
-.navbar .active:before {
+.navbar .active:before { /** torna o before visivel quando é :hover e quando é active */
   visibility: visible;
-  width: 25px;
+  width: 30px;
 }
 
 .navbar a:hover,
 .navbar .active,
 .navbar .active:focus,
-.navbar li:hover>a {
+.navbar li:hover>a { /** faz o texto dos links ficarem brancos quando passa por cima ou clica */
   color: #fff;
 }
 
+/**=================== NAV RESPONSIVO ======================= */
+
+.mobile-nav-toggle { /** customiza o botao adicionado na linha 41 <i class="bi bi-list mobile-nav-toggle"></i> */
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer; /** faz o rato mudar de forma mostrado que é clicavel */
+  display: none; /** só muda o display mostrando se estiver responsivo, inicia oculto (none) */
+  line-height: 0;
+  transition: 0.5s;
+  position: fixed;
+  right: 15px;
+  top: 15px;
+}
+@media (max-width: 991px) { /** Aplica essas alterações quando a tela está responsiva */
+  .mobile-nav-toggle { /**https://www.w3schools.com/howto/howto_js_mobile_navbar.asp */
+    display: block; /** mostra o icone como bloco */
+  }
+
+  .navbar ul {
+    display: none;
+  }
+}
+.navbar-mobile { /** estilos definidos após serem clicados */
+  position: fixed; /** navbar fixa mesmo que o utilizador faça scroll */
+  overflow: hidden; /** faz que os elementos não saiam do espaço da navbar */
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+  z-index: 999; /** ordem de mostrar, nesse caso, sempre acima */
+  margin-top: 0;
+}
+
+.navbar-mobile .mobile-nav-toggle { /** quando o toggle está na versao mobile */
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.navbar-mobile ul { /** estilos para itens da lista contida na navbar */
+  display: block;
+  position: absolute;
+  top: 55px;
+  right: 15px;
+  bottom: 45px;
+  left: 15px;
+  padding: 10px 0;
+  overflow-y: auto; /* se os itens excederemo tamanho, cria um scroll */
+  transition: 0.3s;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+.navbar-mobile li {
+  padding: 12px 20px;
+}
+
+.navbar-mobile li+li {
+  margin: 0;
+}
+
+.navbar-mobile a,
+.navbar-mobile a:focus {
+  font-size: 16px;
+  position: relative;
+}
 
