@@ -35,7 +35,6 @@ header{
 .badge{
     background-color: var(--vermelho);
 }
-
 footer{
     background-color: var(--vermelho);
     color: var(--branco);
@@ -51,4 +50,3 @@ footer a:hover{
     background-color: var(--branco);
     color: var(--vermelho);
 }
- 
