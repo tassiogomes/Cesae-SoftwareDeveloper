@@ -187,8 +187,12 @@ h6 {
   }
 }
 
-/**=================== NAV NO DESKTOP ======================= */
-
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/**
+* Desktop Navigation 
+*/
 .navbar {
   padding: 0;
   margin-top: 35px;
@@ -258,9 +262,9 @@ h6 {
   color: #fff;
 }
 
-
-/**=================== NAV RESPONSIVO ======================= */
-
+/**
+* Mobile Navigation 
+*/
 .mobile-nav-toggle {
   color: #fff;
   font-size: 28px;
@@ -283,26 +287,26 @@ h6 {
   }
 }
 
-.navbar-mobile { /** estilos definidos após serem clicados */
-  position: fixed; /** navbar fixa mesmo que o utilizador faça scroll */
-  overflow: hidden; /** faz que os elementos não saiam do espaço da navbar */
+.navbar-mobile {
+  position: fixed;
+  overflow: hidden;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.9);
   transition: 0.3s;
-  z-index: 999; /** ordem de mostrar, nesse caso, sempre acima */
+  z-index: 999;
   margin-top: 0;
 }
 
-.navbar-mobile .mobile-nav-toggle { /** quando o toggle está na versao mobile */
+.navbar-mobile .mobile-nav-toggle {
   position: absolute;
   top: 15px;
   right: 15px;
 }
 
-.navbar-mobile ul { /** estilos para itens da lista contida na navbar */
+.navbar-mobile ul {
   display: block;
   position: absolute;
   top: 55px;
@@ -310,7 +314,7 @@ h6 {
   bottom: 45px;
   left: 15px;
   padding: 10px 0;
-  overflow-y: auto; /* se os itens excederemo tamanho, cria um scroll */
+  overflow-y: auto;
   transition: 0.3s;
   border: 2px solid rgba(255, 255, 255, 0.2);
 }

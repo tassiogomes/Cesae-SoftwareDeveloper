@@ -3,16 +3,12 @@ body{
     background-color: #040404;
     color:#fff;
     position: relative;
+    margin: 0 ;
     /*background: transparent;*/
     /**padding-left: 200px;*/
 }
-/*  @media (max-width: 768px) {
-    body {
-      padding-left: 0;
-    }
-  }
 
-/** ======= HEADER  ====================*/
+/** HEADER  ====================*/
 /** header referente a esse id <header id="header"> */
 #header {
     transition: ease-in-out 0.3s; /** animação de transição suave com duração de 0,3 segundos*/   
@@ -35,28 +31,79 @@ body{
   color: #fff;
   line-height: 1;
   display: inline-block; /** é mostrado em linhas mas tem uma alt e larg definida */
+  text-decoration: none;
 }
 #header h2 {
     font-size: 24px;
     margin-top: 20px;
     color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 #header h2 span { /** aplica ao h2 span "Software Developer" */
     color: #fff;
     border-bottom: 2px solid #18d26e; /** sublinha */
-    padding-bottom: 6px;
+    padding-bottom: 3px;
+    line-height: 2;
     
 }
 #header h2 span:hover {
     color: #18d26e;    
     /**border-bottom: 2px solid #fff; troca o sublinhado de verde (span acima) para branco */
-    color: #18d26e;
-    padding-bottom: 6px;
-} /** ========================================================= */
+    padding-bottom: 3px;
+    line-height: 2;
+}
+
+@media (max-width: 768px) {
+    #header h1 {
+      font-size: 36px;
+      text-align: center;
+    }
+#header * { /** aplica a todos os elementos (filhos) dentro do header*/
+    transition: ease-in-out 0.4s;
+}
+  
+    #header h2 {
+      position:relative;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: center;
+      /*white-space:nowrap; nao quebra o texto, mas perde a centralização, a direita invade*/
+    }
+  
+    #header .social-links {
+      margin-top: 15px;
+    }
+
+}
+    
+
+/** NAVBAR ================================================ */
 
 #navbar1 {
     padding: 0;
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    height: 15px;
+    width: 5000px;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+    transition: 0.3s;
+    margin-left: 0;
+    padding-left: 0;
+    background-color: transparent !important;
+    /*background-color: transparent !important;*/
 }
+.navbar-nav{
+ padding-left: 0;
+}
+.navbar-nav .nav-link {
+    color: grey!important  ;
+    padding: 0;
+    margin-top: 0;
+    margin-left: 0;
+    display:flex;
+    
+  } 

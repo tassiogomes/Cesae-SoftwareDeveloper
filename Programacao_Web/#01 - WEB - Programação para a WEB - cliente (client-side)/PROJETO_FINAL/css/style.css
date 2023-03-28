@@ -58,9 +58,9 @@ h1,h2, h3, h4, h5, h6 {
     z-index: 997;
     overflow-y: auto; /** o navegador mostrará uma barra de rolagem vertical se o conteúdo do elemento transbordar de sua altura definida.*/
 }
-#header * { /** aplica a todos os elementos (filhos) dentro do header*/
-    transition: ease-in-out 0.3s;
-}
+  #header * { /** aplica a todos os elementos (filhos) dentro do header*/
+      transition: ease-in-out 0.3s;
+  }
 #header h1 {
     font-size: 48px;
     margin: 0;
