@@ -1,6 +1,7 @@
 body{ 
     font-family: 'Open Sans', sans-serif;
-    background-color: #111111;
+    /**background-color: #111111;*/
+    background: url("/img/foto_site_1.jpg") top right no-repeat;
     color:#fff;
     position: relative;
     margin: 0 ;
@@ -88,7 +89,7 @@ body{
     color: rgba(255, 255, 255, 0.7);
     white-space: nowrap;
     transition: 0.3s;
-    margin-left: -7px; /* margem negativa porque ha espaço entre box da navbar e o primeiro item"
+    /*margin-left: -7px; /* margem negativa porque ha espaço entre box da navbar e o primeiro item"
     /*background-color: transparent !important; /* transparencia da box */
     /*background-color: transparent !important;*/
 }
