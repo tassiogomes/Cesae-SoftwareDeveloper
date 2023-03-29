@@ -110,7 +110,7 @@ class Main {
         break;
     };
 
-    // O custo de limpeza e a receita bruta precia ser iniciada antes do if
+    // O custo de limpeza e a receita bruta precisam ser iniciados antes do if
       custo_limpeza = (limpeza * num_dias);
       receita_bruta = (preco * num_dias) - (custo_limpeza); 
 
