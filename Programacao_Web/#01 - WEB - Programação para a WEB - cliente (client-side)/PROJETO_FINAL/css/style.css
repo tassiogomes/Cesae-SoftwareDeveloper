@@ -167,7 +167,7 @@ header img { /** faz cobrir a totalidade do navegador */
 }
 
 .navbar li+li { /** aploca espaço entre elementos li, nao necessariamente ao li todo */
-  margin-left: 30px;
+  
 }
 
 .navbar a,
