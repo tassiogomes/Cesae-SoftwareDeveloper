@@ -22,11 +22,12 @@ class Main {
                 if(arr[i]>maior && arr[i]% 2==0){ //testar o maior
                     maior=arr[i];
                 }
-            if(maior % 2 == 0){
-                System.out.println("O maior par é :" + maior);
-            }else{
-            System.out.println("Só ímpares");
+
         }
+        if(maior % 2 == 0){
+            System.out.println("O maior par é :" + maior);
+        }else{
+            System.out.println("Só ímpares");
 
     }
 

@@ -1,7 +1,7 @@
 body{ 
     font-family: 'Open Sans', sans-serif;
-    /**background-color: #111111;*/
-    background: url("/img/foto_site_1.jpg") top right no-repeat;
+    background-color: #111111;
+    /*background: url("/img/foto_site_1.jpg") top right no-repeat;*/
     color:#fff;
     position: relative;
     margin: 0 ;
