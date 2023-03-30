@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import org.junit.runner.manipulation.Sorter;
-
 class Main {
   public static void main(String[] args) {
 
@@ -23,14 +21,13 @@ class Main {
             vetor[i] = input.nextInt();
             System.out.println("----------------------------------");
             if(vetor[i]>maior){
-            maior=vetor[i];
-              
+            maior=vetor[i];  
         }
 
               
           System.out.println("Maior: " + maior);
           System.out.println("");
-            }
+        }
         input.close();
     }
 }
