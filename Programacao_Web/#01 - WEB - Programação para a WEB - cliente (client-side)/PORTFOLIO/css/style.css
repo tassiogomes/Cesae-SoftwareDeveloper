@@ -4,9 +4,11 @@ body{
     /*background: url("/img/foto_site_1.jpg") top right no-repeat;*/
     color:#fff;
     position: relative;
+    background-size: cover;
     margin: 0 ;
+    padding: 0; 
     /*background: transparent;*/
-    /**padding-left: 200px;*/
+    padding-left: px;
 }
 
 /** HEADER  =======================================================*/

@@ -19,8 +19,20 @@ class Main {
             }
         }
 
-        System.out.println(matriz);
-        
+
+        //Imprime um enter *para ficar bonito*
+        System.out.println(" ");
+
+        // Ciclo que vai iterar 3 vezes - 1x para cada linha
+        for(int linha=0;linha<3;linha++){
+            // Ciclo que vai iterar 3 vezes - 1x para cada coluna
+            for(int coluna=0; coluna<3;coluna++) {
+                System.out.print(matriz[linha][coluna]+" ");
+            }
+            System.out.println("");
+        }
+
+
 
         
 
