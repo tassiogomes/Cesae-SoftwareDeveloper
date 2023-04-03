@@ -23,15 +23,13 @@ class Main {
             n1 = input.nextInt();
             System.out.println("Introduza o 2º número: \n");
             n2 = input.nextInt();   
+            System.out.println("Gostaria de tentar de novo? (y/n)\n");
+            decisao = input.next();  
             System.out.println("--------------------------------------------------");
             System.out.println("Introduza uma operação | + | - | * | / |");
             operacao = input.next();      
             System.out.println("--------------------------------------------------");
-            if(!operacao.equals("+") && !operacao.equals("-") && !operacao.equals("*") && !operacao.equals("/")){
-              System.out.println("Operador inválido, tente novamente um desses | + | - | * | / |\n");
-              System.out.println("Gostaria de tentar de novo? (y/n)\n");
-              decisao = input.next();
-          };         
+
       }while(!operacao.equals("+") && !operacao.equals("-") && !operacao.equals("*") && !operacao.equals("/")  && !decisao.equals("n"));
     switch(operacao){
       case "+":
