@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import org.junit.runner.manipulation.Sorter;
-
 class Main {
   public static void main(String[] args) {
         Scanner input = new Scanner(System.in);

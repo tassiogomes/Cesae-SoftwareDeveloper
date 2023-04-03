@@ -24,3 +24,31 @@ Route::get('/hello world', function(){
 Route::get('/DBZ', function(){
     return "<h1>Champa</h1>";
 });
+
+Route::get('/contacts', function(){
+    return "<h1>Sou os contactos</h1>";
+})->name('contacts.show');
+
+Route::fallback(function(){
+    return "<h1>Desculpe a página não existe.</h1>";
+});
+
+Route::get('/simple_php_route', function () { // o nome da rota é qualquer um
+    return view('simple_php');                // a view tem que ter o mesmo nome 
+}); 
+
+Route::get('/laravel-blade', function () {
+    return view('my_laravel');
+});
+
+Route::get('/home', function () {
+    return view('users.home');
+})->name('home');
+
+Route::get('/home_users', function () {
+    return view('users.all_users');
+})->name('show_all_users');
+
+Route::get('/home-new-user', function () {
+    return view('users.new_user');
+})->name('new-user');
