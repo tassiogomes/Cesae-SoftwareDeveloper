@@ -35,7 +35,7 @@ public class Main {
             System.out.print("Gostaria de continuar? (s/n) ");
             decisao = input.next();
 
-            if (decisao.equalsIgnoreCase("n")) {
+            if (decisao.equalsIgnoreCase("n")) { 
                 System.out.println("Obrigado por utilizar o programa.");
                 input.close();
                 System.exit(0);
