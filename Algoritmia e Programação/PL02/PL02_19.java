@@ -6,13 +6,13 @@ class Main {
     // declare variables
     int cod_func;
     double total_geral,irs, ss_func, ss_ent_patronal, venc_base_liquido,       
-           total_retencao_irs, total_ss_ambos, sub_alimentacao, dias_trab, venc_dia, total_venc, total_sub_alimentacao, total_venc_base;;
+           total_retencao_irs, total_ss_ambos, sub_alimentacao, dias_trab, venc_dia, total_venc, total_sub_alimentacao, total_venc_base;
     String cargo;
 
 
     // start scanner
     Scanner input = new Scanner(System.in);
-
+    
     // enter variables
     System.out.println("Introduza o código do funcionário: ");
     cod_func = input.nextInt();
