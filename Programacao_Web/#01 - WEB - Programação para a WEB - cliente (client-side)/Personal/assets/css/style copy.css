@@ -1,10 +1,3 @@
-/**
-* Template Name: Personal
-* Updated: Mar 10 2023 with Bootstrap v5.2.3
-* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
 /*--------------------------------------------------------------
 # General
@@ -162,6 +155,11 @@ h6 {
 #header.header-top h2 {
   display: none;
 }
+#header.header-top #button2,
+#header.header-top h2 {
+  display: none;
+}
+
 
 #header.header-top h1 {
   margin-right: auto;
@@ -634,6 +632,9 @@ section .container {
   margin-bottom: 20px;
   color: #fff;
 }
+.fhs{
+  color:#444444
+}
 
 .resume .resume-item {
   padding: 0 0 20px 20px;
@@ -954,4 +955,35 @@ section .container {
 
 .credits a:hover {
   color: #fff;
+}
+
+/* button2 */
+#button2 {
+  font-family: "Raleway", sans-serif;
+  margin-top: 20px;
+  padding: 1.3em 1em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #fff;;
+  background-color: #23c483;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+}
+
+#button2:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+#button2:active {
+  transform: translateY(-1px);
 }
