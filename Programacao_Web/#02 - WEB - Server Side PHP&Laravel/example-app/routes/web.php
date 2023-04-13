@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,38 +19,63 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello world', function(){
-    return "<h1>Hello World<\h1>";
+Route::get('/hello_world', function () {
+    return "<h1>Hello World</h1>";
 });
 
-Route::get('/DBZ', function(){
-    return "<h1>Champa</h1>";
+Route::get('/hello/{id}', function ($id) {
+    return "</h1>Hello<h1>" . $id;
 });
 
-Route::get('/contacts', function(){
-    return "<h1>Sou os contactos</h1>";
+Route::get('/laravel_blade', function () {
+    return view('laravel_blade');
+});
+
+Route::get('/simple_php', function () {
+    return view('simple_php');
+});
+
+Route::get('/hello_world/software_dev', function () {
+    return "</>Hello Developer<h1>";
+});
+
+Route::get('/portfolio', function () {
+    return "</h1>Sou o Portfólio<h1>";
+});
+
+Route::get('/contacts', function () {
+    return "</h1>Sou os Contactos<h1>";
 })->name('contacts.show');
 
-Route::fallback(function(){
-    return "<h1>Desculpe a página não existe.</h1>";
-});
-
-Route::get('/simple_php_route', function () { // o nome da rota é qualquer um
-    return view('simple_php');                // a view tem que ter o mesmo nome 
-}); 
-
-Route::get('/laravel-blade', function () {
-    return view('my_laravel');
-});
-
 Route::get('/home', function () {
-    return view('users.home');
-})->name('home');
+    $html = "
+   <h1>I am at Home</h1>
+   <div>
+        <a href='/portfolio'>Portfolio</a>
+        <a href=" . route('contacts.show') . ">Contactos</a>
+   <div>
+   ";
+    return $html;
+});
 
-Route::get('/home_users', function () {
-    return view('users.all_users');
-})->name('show_all_users');
+Route::fallback(function () {
+    return view('fallback');
+});
 
-Route::get('/home-new-user', function () {
-    return view('users.new_user');
-})->name('new-user');
+Route::get('/home_contacts', [HomeController::class, 'index'])->name('index.contacts');
+Route::get('/all_contacts', [HomeController::class, 'allContacts'])->name('contacts.all');
+
+/* Software Developer */
+
+Route::get(
+    '/home',
+    [UserController::class, 'index']
+)->name('home');
+
+Route::get(
+    '/home_all_users',
+    [UserController::class, 'all_users']
+)->name('show_all_users');
+
+Route::get('/home_add_user', [UserController::class, 'add_user']
+)->name('new-user');
