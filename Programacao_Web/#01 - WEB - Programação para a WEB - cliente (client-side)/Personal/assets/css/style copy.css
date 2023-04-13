@@ -141,6 +141,71 @@ h6 {
   }
 }
 
+/* button2 */
+#button2 {
+  font-family: "Raleway", sans-serif;
+  margin-top: 20px;
+  padding: 1.3em 1em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #fff;;
+  background-color: #23c483;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+}
+
+#button2:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+#button2:active {
+  transform: translateY(-1px);
+}
+#button3 {
+  font-family: "Raleway", sans-serif;
+  margin-top: 30px;
+  padding: 1.3em 1em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #23c483;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px; /* Defina a largura do botão conforme necessário */
+  margin-left: auto; /* Centralizar horizontalmente */
+  margin-right: auto; /* Centralizar horizontalmente */
+}
+
+#button3:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+#button3:active {
+  transform: translateY(-1px);
+}
+
 /* Header Top */
 #header.header-top {
   height: 80px;
