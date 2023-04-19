@@ -6,27 +6,29 @@ body {
   font-family: "Open Sans", sans-serif;
   background-color: #040404;
   color: #fff;
-  position: relative;
-  background: transparent;
+  position: relative; /* Define a posição como relativa */
+  background: transparent; /* Define o fundo como transparente */
 }
 
 body::before {
-  content: "";
-  position: fixed;
+  content: ""; /* Define que o conteúdo do pseudo-elemento é vazio */
+  position: fixed; /* Define a posição como fixa */
   background: #040404 url("../img/bg_2.jpg") top right no-repeat;
   background-size: cover;
   left: 0;
   right: 0;
   top: 0;
-  height: 100vh;
-  z-index: -1;
+  height: 100vh; /* Define a altura do pseudo-elemento como 100% da altura da viewport */
+  z-index: -1; /* Define a ordem de empilhamento como -1 */
 }
 
+/* Define uma regra de mídia para dispositivos com tela maior ou igual a 1024 pixels de largura */
 @media (min-width: 1024px) {
   body::before {
-    background-attachment: fixed;
+    background-attachment: fixed; /* Define que a imagem de fundo deve permanecer fixa enquanto o conteúdo da página rola */
   }
 }
+
 
 a {
   color: #18d26e;
@@ -38,12 +40,7 @@ a:hover {
   text-decoration: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2,h3,h4,h5,h6 {
   font-family: "Raleway", sans-serif;
 }
 
@@ -53,15 +50,15 @@ h6 {
 #header {
   transition: ease-in-out 0.3s;
   position: relative;
-  height: 100vh;
-  display: flex;
+  height: 100vh; /* Define a altura do elemento como 100% da altura da viewport */
+  display: flex; /* Define o elemento como um contêiner flexível */
   align-items: center;
-  z-index: 997;
-  overflow-y: auto;
+  z-index: 997; /* Define a ordem de empilhamento do elemento */
+  overflow-y: auto; /* Define a rolagem vertical quando o conteúdo excede a altura do elemento */
 }
 
 #header * {
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s; /* Transição de 0.3 segundos com um efeito de aceleração e desaceleração */
 }
 
 #header h1 {
@@ -109,9 +106,9 @@ h6 {
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
-  line-height: 1;
+  line-height: 1; /* Define a altura da linha de texto como 1, evitando espaçamento adicional */
   margin-right: 8px;
-  border-radius: 50%;
+  border-radius: 50%; /* Define um raio de borda arredondado para criar um círculo */
   width: 40px;
   height: 40px;
 }
@@ -141,6 +138,71 @@ h6 {
   }
 }
 
+/* button2 */
+#button2 {
+  font-family: "Raleway", sans-serif;
+  margin-top: 20px;
+  padding: 1.3em 1em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #fff;;
+  background-color: #23c483;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+}
+
+#button2:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+#button2:active {
+  transform: translateY(-1px);
+}
+#button3 {
+  font-family: "Raleway", sans-serif;
+  margin-top: 30px;
+  padding: 1.3em 1em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #23c483;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px; /* Defina a largura do botão conforme necessário */
+  margin-left: auto; /* Centralizar horizontalmente */
+  margin-right: auto; /* Centralizar horizontalmente */
+}
+
+#button3:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+#button3:active {
+  transform: translateY(-1px); /* Move o botão para cima 1 pixel quando é clicado */
+}
+
 /* Header Top */
 #header.header-top {
   height: 80px;
@@ -151,10 +213,19 @@ h6 {
   background: rgba(0, 0, 0, 0.9);
 }
 
+/* Esconde os elementos ".social-links" e "h2" dentro do elemento com classe "header-top" */
 #header.header-top .social-links,
 #header.header-top h2 {
   display: none;
 }
+
+/* Esconde os elementos "#button2" e "h2" dentro do elemento com classe "header-top" */
+#header.header-top #button2,
+#header.header-top h2 {
+  display: none;
+}
+
+
 
 #header.header-top h1 {
   margin-right: auto;
@@ -208,7 +279,7 @@ h6 {
 }
 
 .navbar a,
-.navbar a:focus {
+.navbar a:focus { /* focus define pra quando o elemento é clicado */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -228,7 +299,7 @@ h6 {
   margin-left: 5px;
 }
 
-.navbar a:before {
+.navbar a:before { /* criam uma linha horizontal que será exibida abaixo do link quando ele estiver em foco.*/
   content: "";
   position: absolute;
   width: 0;
@@ -241,11 +312,11 @@ h6 {
   transition: all 0.3s ease-in-out 0s;
 }
 
-.navbar a:hover:before,
-.navbar li:hover>a:before,
-.navbar .active:before {
-  visibility: visible;
-  width: 25px;
+.navbar a:hover:before, /* Quando o link é hoverado, a linha horizontal aparece */
+.navbar li:hover>a:before, /* Quando o link é hoverado, a linha horizontal aparece */
+.navbar .active:before { /* Quando o link está ativo (por exemplo, em uma página atual), a linha horizontal aparece */
+  visibility: visible; /* Torna a linha horizontal visível */
+  width: 25px; /* Aumenta a largura da linha horizontal para 25 pixels */
 }
 
 .navbar a:hover,
@@ -330,7 +401,7 @@ h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  overflow: hidden;
+  overflow:hidden;
   position: absolute;
   width: 100%;
   top: 140px;
@@ -433,7 +504,7 @@ section .container {
 --------------------------------------------------------------*/
 .counts {
   padding: 70px 0 60px;
-}
+  }
 
 .counts .count-box {
   padding: 30px 30px 25px 30px;
@@ -627,6 +698,9 @@ section .container {
   margin-bottom: 20px;
   color: #fff;
 }
+.fhs{
+  color:#444444
+}
 
 .resume .resume-item {
   padding: 0 0 20px 20px;
@@ -704,7 +778,7 @@ section .container {
 
 .services .icon-box .icon i {
   color: #fff;
-  font-size: 28px;
+  font-size: 50px;
 }
 
 .services .icon-box .icon::before {
@@ -758,235 +832,7 @@ section .container {
   color: #fff;
 }
 
-/*--------------------------------------------------------------
-# Portfolio
---------------------------------------------------------------*/
-.portfolio .portfolio-item {
-  margin-bottom: 30px;
-}
 
-.portfolio #portfolio-flters {
-  padding: 0;
-  margin: 0 auto 15px auto;
-  list-style: none;
-  text-align: center;
-  border-radius: 50px;
-  padding: 2px 15px;
-}
-
-.portfolio #portfolio-flters li {
-  cursor: pointer;
-  display: inline-block;
-  padding: 8px 16px 10px 16px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-  text-transform: uppercase;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
-  margin: 0 3px 10px 3px;
-  transition: all 0.3s ease-in-out;
-  border-radius: 4px;
-}
-
-.portfolio #portfolio-flters li:hover,
-.portfolio #portfolio-flters li.filter-active {
-  background: #18d26e;
-}
-
-.portfolio #portfolio-flters li:last-child {
-  margin-right: 0;
-}
-
-.portfolio .portfolio-wrap {
-  transition: 0.3s;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.portfolio .portfolio-wrap::before {
-  content: "";
-  background: rgba(0, 0, 0, 0.6);
-  position: absolute;
-  left: 30px;
-  right: 30px;
-  top: 30px;
-  bottom: 30px;
-  transition: all ease-in-out 0.3s;
-  z-index: 2;
-  opacity: 0;
-}
-
-.portfolio .portfolio-wrap .portfolio-info {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  text-align: center;
-  z-index: 3;
-  transition: all ease-in-out 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.portfolio .portfolio-wrap .portfolio-info::before {
-  display: block;
-  content: "";
-  width: 48px;
-  height: 48px;
-  position: absolute;
-  top: 35px;
-  left: 35px;
-  border-top: 3px solid #fff;
-  border-left: 3px solid #fff;
-  transition: all 0.5s ease 0s;
-  z-index: 9994;
-}
-
-.portfolio .portfolio-wrap .portfolio-info::after {
-  display: block;
-  content: "";
-  width: 48px;
-  height: 48px;
-  position: absolute;
-  bottom: 35px;
-  right: 35px;
-  border-bottom: 3px solid #fff;
-  border-right: 3px solid #fff;
-  transition: all 0.5s ease 0s;
-  z-index: 9994;
-}
-
-.portfolio .portfolio-wrap .portfolio-info h4 {
-  font-size: 20px;
-  color: #fff;
-  font-weight: 600;
-}
-
-.portfolio .portfolio-wrap .portfolio-info p {
-  color: #ffffff;
-  font-size: 14px;
-  text-transform: uppercase;
-  padding: 0;
-  margin: 0;
-}
-
-.portfolio .portfolio-wrap .portfolio-links {
-  text-align: center;
-  z-index: 4;
-}
-
-.portfolio .portfolio-wrap .portfolio-links a {
-  color: #fff;
-  margin: 0 2px;
-  font-size: 28px;
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.portfolio .portfolio-wrap .portfolio-links a:hover {
-  color: #63eda3;
-}
-
-.portfolio .portfolio-wrap:hover::before {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 1;
-}
-
-.portfolio .portfolio-wrap:hover .portfolio-info {
-  opacity: 1;
-}
-
-.portfolio .portfolio-wrap:hover .portfolio-info::before {
-  top: 15px;
-  left: 15px;
-}
-
-.portfolio .portfolio-wrap:hover .portfolio-info::after {
-  bottom: 15px;
-  right: 15px;
-}
-
-/*--------------------------------------------------------------
-# Portfolio Details
---------------------------------------------------------------*/
-.portfolio-details {
-  padding-top: 40px;
-  background: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  overflow-y: auto;
-}
-
-.portfolio-details .container {
-  padding-top: 20px;
-  padding-bottom: 40px;
-}
-
-.portfolio-details .portfolio-title {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.portfolio-details .portfolio-info {
-  padding-top: 45px;
-}
-
-.portfolio-details .portfolio-info h3 {
-  font-size: 22px;
-  font-weight: 400;
-  margin-bottom: 20px;
-}
-
-.portfolio-details .portfolio-info ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.portfolio-details .portfolio-info ul li+li {
-  margin-top: 10px;
-}
-
-.portfolio-details .portfolio-info p {
-  font-size: 15px;
-  padding: 15px 0 0 0;
-}
-
-@media (max-width: 992px) {
-  .portfolio-details .portfolio-info {
-    padding-top: 20px;
-  }
-}
-
-.portfolio-details .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.portfolio-details .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  opacity: 1;
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-.portfolio-details .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #18d26e;
-}
 
 /*--------------------------------------------------------------
 # Contact
@@ -1040,100 +886,38 @@ section .container {
   color: #18d26e;
 }
 
-.contact .php-email-form {
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.08);
+/* button2 */
+#button2 {
+  font-family: "Raleway", sans-serif;
+  margin-top: 20px;
+  padding: 1.3em 1em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #fff;;
+  background-color: #23c483;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  display: flex;
 }
 
-.contact .php-email-form .error-message {
-  display: none;
-  background: rgba(255, 255, 255, 0.08);
-  background: #ed3c0d;
-  text-align: left;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .error-message br+br {
-  margin-top: 25px;
-}
-
-.contact .php-email-form .sent-message {
-  display: none;
-  background: rgba(255, 255, 255, 0.08);
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .loading {
-  display: none;
-  background: rgba(255, 255, 255, 0.08);
-  text-align: center;
-  padding: 15px;
-}
-
-.contact .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  animation: animate-loading 1s linear infinite;
-}
-
-.contact .php-email-form input,
-.contact .php-email-form textarea {
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 14px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 0;
-  transition: 0.3s;
+#button2:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
+  transform: translateY(-7px);
 }
 
-.contact .php-email-form input:focus,
-.contact .php-email-form textarea:focus {
-  background-color: rgba(255, 255, 255, 0.11);
+#button2:active {
+  transform: translateY(-1px);
 }
 
-.contact .php-email-form input::-moz-placeholder,
-.contact .php-email-form textarea::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.3);
-  opacity: 1;
-}
 
-.contact .php-email-form input::placeholder,
-.contact .php-email-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.3);
-  opacity: 1;
-}
-
-.contact .php-email-form input {
-  padding: 10px 15px;
-}
-
-.contact .php-email-form textarea {
-  padding: 12px 15px;
-}
-
-.contact .php-email-form button[type=submit] {
-  background: #18d26e;
-  border: 0;
-  padding: 10px 30px;
-  color: #fff;
-  transition: 0.4s;
-  border-radius: 4px;
-}
-
-.contact .php-email-form button[type=submit]:hover {
-  background: #15bb62;
-}
 
 @keyframes animate-loading {
   0% {
@@ -1176,3 +960,4 @@ section .container {
 .credits a:hover {
   color: #fff;
 }
+
