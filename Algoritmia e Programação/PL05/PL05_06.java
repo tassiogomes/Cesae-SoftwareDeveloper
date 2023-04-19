@@ -12,7 +12,7 @@ class Main {
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < controle; i++) {
             System.out.print("Digite o " + (i+1) + "º número: ");
-            arr[i] = sc.nextInt();
+            arr[i] = sc.next  Int();
         }
         
         // verifica se o array está em ordem crescente

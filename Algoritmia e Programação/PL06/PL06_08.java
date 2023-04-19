@@ -1,15 +1,15 @@
 import java.util.Scanner;
 
-public class PL06_06 {
+public class PL06_08 {
 
-    public static int maiorValor(int[] numeros) {
-        int maior = numeros[0];
-        for (int i = 1; i < numeros.length; i++) {
-            if (numeros[i] > maior) {
-                maior = numeros[i];
+
+    public static boolean crescente(int[] numeros) {     // crescente?
+        for (int i = 0; i < numeros.length-1; i++)  {
+            if (numeros[i] > numeros[i+1]) {
+                return false;
             }
         }
-        return maior;
+        return true;
     }
 
 
@@ -32,10 +32,10 @@ public class PL06_06 {
           }
 
     // call the function and store the result in a variable
-        int maior = maiorValor(array);
+        boolean crescente = crescente(array);
 
     // print the result
-        System.out.println("O maior valor é: " + maior);
+        System.out.println("Is the array asc? " + crescente);
 
 
     input.close();

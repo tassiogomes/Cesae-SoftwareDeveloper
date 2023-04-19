@@ -1,15 +1,15 @@
 import java.util.Scanner;
 
-public class PL06_06 {
+public class PL06_07 {
 
-    public static int maiorValor(int[] numeros) {
-        int maior = numeros[0];
+    public static int menorValor(int[] numeros) {
+        int menor = numeros[0];
         for (int i = 1; i < numeros.length; i++) {
-            if (numeros[i] > maior) {
-                maior = numeros[i];
+            if (numeros[i] < menor) {
+                menor = numeros[i];
             }
         }
-        return maior;
+        return menor;
     }
 
 
@@ -32,10 +32,10 @@ public class PL06_06 {
           }
 
     // call the function and store the result in a variable
-        int maior = maiorValor(array);
+        int menor = menorValor(array);
 
     // print the result
-        System.out.println("O maior valor é: " + maior);
+        System.out.println("O menor valor é: " + menor);
 
 
     input.close();

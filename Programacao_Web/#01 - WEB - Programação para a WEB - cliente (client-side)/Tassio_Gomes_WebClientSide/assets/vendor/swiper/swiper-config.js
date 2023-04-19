@@ -5,7 +5,7 @@ const swiper = new Swiper('.testimonials-slider', {
       delay: 5000,
       disableOnInteraction: false,
     },
-    loop: true,
+    loop: false,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
