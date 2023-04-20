@@ -2,14 +2,14 @@ import java.util.Scanner;
 
 public class PL06_06 {
 
-    public static int maiorValor(int[] numeros) {
-        int maior = numeros[0];
+    public static int maiorValor(int[] numeros) {       //função int que recebe um array como parâmetro
+        int maior = numeros[0];                         //que será introduzido pelo user no programa
         for (int i = 1; i < numeros.length; i++) {
             if (numeros[i] > maior) {
                 maior = numeros[i];
             }
-        }
-        return maior;
+        }   
+        return maior;                                   //retorna uma int, o retorno é sempre o mesmo tipo da função
     }
 
 
@@ -22,7 +22,7 @@ public class PL06_06 {
     int array_size = input.nextInt();
 
     // create array
-    int[] array =  new int [array_size];
+    int[] array =  new int [array_size];                //cria o array e passa o tamanho introduzido pelo user.
 
     // filling array
     for(int i = 0; i < array_size; i++){
@@ -32,8 +32,8 @@ public class PL06_06 {
           }
 
     // call the function and store the result in a variable
-        int maior = maiorValor(array);
-
+        int maior = maiorValor(array);                  // para mostrar o valor, cria uma variável e chama a função com o parâmetro array
+                                                        // retornando o int, que é o retorno da função. PRECISA SER GUARDADO EM UMA VARIÁVEL
     // print the result
         System.out.println("O maior valor é: " + maior);
 
