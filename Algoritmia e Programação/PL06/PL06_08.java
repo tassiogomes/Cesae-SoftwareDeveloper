@@ -32,10 +32,11 @@ public class PL06_08 {
           }
 
     // call the function and store the result in a variable
-        boolean crescente = crescente(array);
+       boolean crescente = crescente(array);
+        
 
     // print the result
-        System.out.println("Is the array asc? " + crescente);
+       System.out.println("Is the array asc? " + crescente);
 
 
     input.close();
