@@ -17,7 +17,7 @@ public class AV2_V2{
         functionMenu(data);
 
 
-    } // chavetas main
+    }
 
 
 // ------------------------- Functions/Methods ------------------------------------------------*/
@@ -81,7 +81,7 @@ public class AV2_V2{
 
     }
 
-
+    // read data and store 
     public static String [][] readData(){
 
         // ***this part counts how many lines the file has***
@@ -259,4 +259,4 @@ public static void printData(String[][] data) {
             System.out.printf("O jogo mais caro é %s que custa €%.2f e foi comprado pelos seguintes clientes: %s\n", mostExpensiveGame, maxPrice, clientsWhoBought);
 
         }
-    } // chavetas  public class
+    } 
