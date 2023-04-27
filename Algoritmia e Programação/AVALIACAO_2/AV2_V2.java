@@ -27,7 +27,7 @@ public class AV2_V2{
             System.out.println("2 - Imprimir  o nº total de vendas e o valor total");
             System.out.println("3 - Calcular o lucro total de todas as vendas");
             System.out.println("4 - Imprimir as informações de um cliente");
-            System.out.println("5 - Imprimir os gêneros e os jogos de uma determinada editora");
+            System.out.println("5 - Imprimir os gêneros e os jogos de uma determinada publisher");
             System.out.println("6 - Imprimir o jogo mais caro e os clientes que o cobmpraram");
             System.out.println("0 - Sair");
             System.out.print("Escolha uma das opções acima: ");
@@ -50,9 +50,10 @@ public class AV2_V2{
                             totalProfit(data);
                             break;
                         case 4:
+                            customerInformation(data);
                             break;
                         case 5:
-                            // TODO: implementar funcionalidade
+                            genresAndGamesByPublisher(data);
                             break;
                         case 6:
                             // TODO: implementar funcionalidade
@@ -114,7 +115,7 @@ public static String [][] readData(){
     return data;
 }
 
-
+// case 1
 // This method takes a two-dimensional array of Strings as input and prints its contents to the console.
 public static void printData(String[][] data) {
         // Calculate the maximum width for each column
@@ -141,24 +142,24 @@ public static void printData(String[][] data) {
     
 
 
+    // case 2
+    public static void totalSalesAndTotalValue(String[][] data) {
+        int numOfSales = data.length; // count the number of sales, the number of rows in the data)
 
-public static void totalSalesAndTotalValue(String[][] data) {
-    int numOfSales = data.length; // count the number of sales, the number of rows in the data)
+        double totalValue = 0; // initialize the total value of sales to zero
 
-    double totalValue = 0; // initialize the total value of sales to zero
+        // loop over each row in the data and add the value of the sale (stored in column 8) to the total value
+        for (int i = 0; i < data.length; i++) {
+            totalValue += Double.parseDouble(data[i][8]);
+        }
 
-    // loop over each row in the data and add the value of the sale (stored in column 8) to the total value
-    for (int i = 0; i < data.length; i++) {
-        totalValue += Double.parseDouble(data[i][8]);
+        // print the number of sales and the total value of sales (formatted as a currency with two decimal places)
+        System.out.println(data.length);
+        System.out.printf("O nº total de vendas registrado na base de data é: %d \n", numOfSales);
+        System.out.printf("Valor total de vendas: %.2f EUR\n", totalValue); // formating and round the value to 2 decimal
     }
 
-    // print the number of sales and the total value of sales (formatted as a currency with two decimal places)
-    System.out.println(data.length);
-    System.out.printf("O nº total de vendas registrado na base de data é: %d \n", numOfSales);
-    System.out.printf("Valor total de vendas: %.2f EUR\n", totalValue); // formating and round the value to 2 decimal
-}
-
-
+    // case 3
     public static void totalProfit(String[][] data) {
         double totalProfit = 0;
     
@@ -171,12 +172,63 @@ public static void totalSalesAndTotalValue(String[][] data) {
         System.out.printf("Total de lucro: %.2f EUR\n", totalProfit);
     }
 
-
-
-
-
-
-
-
-
+        // case 4
+        public static void customerInformation(String[][] data) {
+            Scanner input = new Scanner(System.in);
+            System.out.print("Digite o ID do Cliente: ");
+            String IdCliente = input.nextLine();
+    
+            boolean found = false;                                      // global variable initialized false to control the loop
+    
+            for (int i = 0; i < data.length -1; i++) {                  // loop traversing line by line
+                if (data[i][1].equals(IdCliente)) {                     // check each line in column 2 or position 1 of the database to see if the entered value matches the value in the database.
+                    System.out.println("Nome: " + data[i][2]);          // print the column 3 or position 2
+                    System.out.println("Contacto: " + data[i][3]);
+                    System.out.println("Email: " + data[i][4]);
+                    found = true;                                       // keep going while found is true
+                    break;                                              // if you want show only the first one
+                }
+            }
+    
+            if (!found) {                                           // if found is false, that IdCliente does not exist
+                System.out.println("Não existe informação sobre esse cliente " + IdCliente);
+            }
+        }
+        // case 5
+        public static void genresAndGamesByPublisher(String[][] data) {
+            Scanner input = new Scanner(System.in);
+            System.out.print("Insira o nome da publisher: ");
+            String publisher = input.nextLine();
+        
+            String[][] gamesFound = new String[data.length-1][2]; // -1 para não contar o cabeçalho
+        
+            int index = 0;
+            for (int i = 0; i < data.length-1; i++) {
+                if (data[i][5].equals(publisher)) {                     // publisher index
+                    String game = data[i][7];
+                    String genre = data[i][6];
+                    boolean added = false;                              // boolean for loop control
+                    for (int line = 0; line < index; line++) {
+                        if (gamesFound[line][0].equals(game)) {
+                            added = true;
+                            break;
+                        }
+                    }
+                    if (!added) {
+                        gamesFound[index][0] = game;
+                        gamesFound[index][1] = genre;
+                        index++;
+                    }
+                }
+            }
+        
+            if (index == 0) {
+                System.out.printf("Não foram encontrados jogos para a editora %s ", publisher);
+            } else {
+                for (int i = 0; i < index; i++) {
+                    System.out.println("Jogo: " + gamesFound[i][0] + ", Gênero: " + gamesFound[i][1]);
+                }
+            }
+        }
+        
     } // chavetas  public class
