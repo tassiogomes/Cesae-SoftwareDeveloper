@@ -11,10 +11,6 @@ public class AV2{
         System.out.println(" ");
         System.out.println("Avaliação 2 de Algoritmia e Programação - Programação Estruturada");
         System.out.println(" ");
-        System.out.println("Elabore um menu, que permita ao utilizador escolher o que pretende fazer, sendo que as opções terão de corresponder ao número do exercício seguido da sua descrição.");
-        System.out.println(" ");
-        System.out.println("---------------------------------------------------------------------");
-        System.out.println(" ");
 
 
         // ****** MENU ******
@@ -22,8 +18,7 @@ public class AV2{
 
         int menuOption = -1;
         do {
-            // Graphical layout of the actual menu functions based on user input and followed by corresponding descriptive text.
-            System.out.println("****** Menu GameStart");
+            System.out.println("****** Menu GameStart ******");
             System.out.println("1 - Imprimir o conteúdo da base de dados");
             System.out.println("2 - Imprimir  o nº total de vendas e o valor total");
             System.out.println("3 - Calcular o lucro total de todas as vendas");
@@ -80,30 +75,6 @@ public class AV2{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 } else {
                     System.out.println("Opção inválida. Escolha um número entre 0 e 6.");
                 }
@@ -116,10 +87,35 @@ public class AV2{
 
         } while (menuOption != 0);
 
+        File file = new File("GameStart.csv");              
+        Scanner input = new Scanner(file);    
+
     } // chavetas main
 
 
 // ------------------------- Functions/Methods ------------------------------------------------*/
+
+public static String[][] readFileAndFillMatrix(File file) throws FileNotFoundException {
+    Scanner input = new Scanner(file);
+    String[][] matrix = new String[0][9];
+    int row = 0;  
+    while (input.hasNextLine()) {
+        String[] line = input.nextLine().split(",");
+        if (line.length == 9) {
+            String[][] newMatrix = new String[row + 1][9];
+            for (int col = 0; col < 9; col++) {
+                newMatrix[row][col] = line[col];
+            }
+            System.arraycopy(matrix, 0, newMatrix, 0, row);
+            matrix = newMatrix;
+            row++;
+        }
+    }
+    input.close();
+    return matrix;
+}
+
+
 
         public static void databasePrinter() throws FileNotFoundException{
             System.out.println("1 - Imprimir o conteúdo da base de dados");
