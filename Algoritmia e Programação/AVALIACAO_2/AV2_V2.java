@@ -56,7 +56,7 @@ public class AV2_V2{
                             genresAndGamesByPublisher(data);
                             break;
                         case 6:
-                            // TODO: implementar funcionalidade
+                            mostExpensiveGameAndClients(data);
                             break;
                         case 0:
                             break;
@@ -79,6 +79,10 @@ public class AV2_V2{
 
 
 // ------------------------- Functions/Methods ------------------------------------------------*/
+
+
+
+
 
 
 public static String [][] readData(){
@@ -194,6 +198,7 @@ public static void printData(String[][] data) {
                 System.out.println("Não existe informação sobre esse cliente " + IdCliente);
             }
         }
+        
         // case 5
         public static void genresAndGamesByPublisher(String[][] data) {
             Scanner input = new Scanner(System.in);
@@ -230,5 +235,31 @@ public static void printData(String[][] data) {
                 }
             }
         }
+
         
+        // case 6
+        public static void mostExpensiveGameAndClients(String[][] data) {
+            double maxPrice = Double.MIN_VALUE;                         // initializes the maximum price to the smallest possible value
+            String mostExpensiveGame = "";                              // initializes the name of the most expensive game as an empty string
+            String clientsWhoBought = "";                               // initializes the string of clients who bought the most expensive game as an empty string
+
+            // finds the most expensive game
+            for (int i = 0; i < data.length; i++) {                     
+                double currentPrice = Double.parseDouble(data[i][8]);   // gets the current game price as a double
+
+                if (currentPrice > maxPrice) {                          // if the current price is greater than the maximum price
+                    maxPrice = currentPrice;                            // sets the maximum price to the current price
+                    mostExpensiveGame = data[i][7];                     // sets the name of the most expensive game to the name of the current game
+                }
+            }
+            // finds the clients who bought the most expensive game
+            for (int i = 0; i < data.length-1; i++) {                  
+                if (data[i][7].equals(mostExpensiveGame)) {             // if the name of the current game matches the name of the most expensive game
+                    clientsWhoBought += data[i][2] + ", ";              // adds the name of the client who bought the game to the string of clients
+                }
+            }
+            // prints the result
+            System.out.printf("O jogo mais caro é %s que custa €%.2f e foi comprado pelos seguintes clientes: %s\n", mostExpensiveGame, maxPrice, clientsWhoBought);
+
+        }
     } // chavetas  public class
