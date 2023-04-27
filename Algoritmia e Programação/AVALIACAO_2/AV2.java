@@ -79,7 +79,7 @@ public class AV2{
                     System.out.println("Opção inválida. Escolha um número entre 0 e 6.");
                 }
             } else {
-                System.out.println("Opção inválida. Escolha um número entre 0 e 6.");
+                System.out.println("Opção inválida. Escolha um número entre 0 e 6.");x
                 input.next(); // Descartar a entrada não válida do usuário
             }
 

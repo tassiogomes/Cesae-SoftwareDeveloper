@@ -7,7 +7,7 @@
 @section('content')
     <div class="container bg-danger">
         <h1>Olá, sou a lista de utilizadores</h1>
-    </div>
+    </div> 
 
 
     <h4>teste de Array</h4>
