@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class AV2_V2{
+public class AV2_V3{
 
 
     public static void main(String[] args){
@@ -22,72 +22,7 @@ public class AV2_V2{
 
 // ------------------------- Functions/Methods ------------------------------------------------*/
 
-    public static void functionMenu(String[][] data){
-        // ****** MENU ******
-        Scanner input = new Scanner(System.in); // Initializing the scanner
-
-        int menuOption = -1;
-        do {
-            System.out.println("****** Menu GameStart ******");
-            System.out.println("1 - Imprimir o conteúdo da base de data");
-            System.out.println("2 - Imprimir  o nº total de vendas e o valor total");
-            System.out.println("3 - Calcular o lucro total de todas as vendas");
-            System.out.println("4 - Imprimir as informações de um cliente");
-            System.out.println("5 - Imprimir os gêneros e os jogos de uma determinada publisher");
-            System.out.println("6 - Imprimir o jogo mais caro e os clientes que o cobmpraram");
-            System.out.println("7 - Sair");
-            System.out.print("Escolha uma das opções acima: ");
-
-            // declare variables 
-            if (input.hasNextInt()) {                       // integer control
-                menuOption = input.nextInt();
-
-                if (menuOption >= 1 && menuOption <= 7) {   // check if the number is within the desired range
-                    switch(menuOption){
-
-                        case 1: {
-                            printData(data);
-                            break;
-                        }
-                        case 2:
-                            try {
-                                totalSalesAndTotalValue(data);
-                            } catch (NumberFormatException exc) {
-                                System.out.println("Erro: os dados de venda não puderam ser calculados porque alguns valores não são numéricos.");
-                            }
-                            break;
-                        case 3:
-                            try {
-                                totalProfit(data);
-                            } catch (NumberFormatException e) {
-                                System.out.println("Erro: os dados de lucro não puderam ser calculados porque alguns valores não são numéricos.");
-                            }
-                            break;
-                        case 4:
-                            customerInformation(data);
-                            break;
-                        case 5:
-                            genresAndGamesByPublisher(data);
-                            break;
-                        case 6:
-                            mostExpensiveGameAndClients(data);
-                            break;
-                        case 0:
-                            break;
-                
-                    }
-
-                } else {
-                    System.out.println("Opção inválida. Escolha um número entre 0 e 6.");
-                }
-            } else {
-                System.out.println("Opção inválida. Escolha um número entre 0 e 6.");
-                input.next(); // Descartar a entrada não válida do usuário
-            }
-
-        } while (menuOption != 7);
-
-    }
+    
 
     // read data and store 
     public static String [][] readData(){
@@ -124,25 +59,25 @@ public class AV2_V2{
         return data;
     }
 
-/**
- * This method takes a two-dimensional array of Strings as input and prints its contents to the console.
- * @param data
- */    
-// case 1
-public static void printData(String[][] data) {
-        // Calculate the maximum width for each column
-        int[] maxColWidths = new int[data[0].length];       // array to store the maximum width for each column
-        for (int col = 0; col < data[0].length; col++) {    // loop through each column
-            int max = 0;                                    // variable to store the maximum width of the current column
-            for (int row = 0; row < data.length; row++) {   // loop through each row in the current column
-                int len = data[row][col].length();          // get the length of the current field
-                if (len > max) {                            // if the length is greater than the current maximum
-                    max = len;                              // set the maximum to the current length
+
+
+
+    // case 1
+    // This method takes a two-dimensional array of Strings as input and prints its contents to the console.
+    public static void printData(String[][] data) {
+            // Calculate the maximum width for each column
+            int[] maxColWidths = new int[data[0].length];       // array to store the maximum width for each column
+            for (int col = 0; col < data[0].length; col++) {    // loop through each column
+                int max = 0;                                    // variable to store the maximum width of the current column
+                for (int row = 0; row < data.length; row++) {   // loop through each row in the current column
+                    int len = data[row][col].length();          // get the length of the current field
+                    if (len > max) {                            // if the length is greater than the current maximum
+                        max = len;                              // set the maximum to the current length
+                    }
                 }
+                maxColWidths[col] = max;                        // store the maximum width for the current column
             }
-            maxColWidths[col] = max;                        // store the maximum width for the current column
-        }
-        
+            
         // Print the data with aligned columns
         for (int row = 0; row < data.length; row++) {       // loop through each row
             for (int col = 0; col < data[row].length; col++) { // loop through each column in the current row
@@ -153,10 +88,7 @@ public static void printData(String[][] data) {
     }
     
 
-    /**
-     * This function returns the total sales and the total sales amount
-     * @param data
-     */
+
     // case 2
     public static void totalSalesAndTotalValue(String[][] data) {
         int numOfSales = data.length; // count the number of sales, the number of rows in the data)
@@ -174,15 +106,11 @@ public static void printData(String[][] data) {
         System.out.printf("Valor total de vendas: %.2f EUR\n", totalValue); // formating and round the value to 2 decimal
     }
 
-    /**
-     * This function returns the total sales profit
-     * @param data
-     */
     // case 3
     public static void totalProfit(String[][] data) {
         double totalProfit = 0;
     
-        for (int i = 0; i < data.length; i++) {
+        for (int i = 1; i < data.length; i++) {
             double saleValue = Double.parseDouble(data[i][8]);
             double profit = saleValue * 0.1;
             totalProfit += profit;
@@ -191,11 +119,6 @@ public static void printData(String[][] data) {
         System.out.printf("Total de lucro: %.2f EUR\n", totalProfit);
     }
 
-
-        /**
-         * This function returns customer information.
-         * @param data
-         */
         // case 4
         public static void customerInformation(String[][] data) {
             Scanner input = new Scanner(System.in);
@@ -219,10 +142,6 @@ public static void printData(String[][] data) {
             }
         }
         
-        /**
-         * This function returns game and genres by publisher
-         * @param data
-         */
         // case 5
         public static void genresAndGamesByPublisher(String[][] data) {
             Scanner input = new Scanner(System.in);
@@ -260,10 +179,7 @@ public static void printData(String[][] data) {
             }
         }
 
-        /**
-         * This function returns the most expensive game
-         * @param data
-         */
+        
         // case 6
         public static void mostExpensiveGameAndClients(String[][] data) {
             double maxPrice = Double.MIN_VALUE;                         // initializes the maximum price to the smallest possible value
@@ -289,4 +205,65 @@ public static void printData(String[][] data) {
             System.out.printf("O jogo mais caro é %s que custa €%.2f e foi comprado pelos seguintes clientes: %s\n", mostExpensiveGame, maxPrice, clientsWhoBought);
 
         }
+
+        public static void functionMenu(String[][] data){
+            // ****** MENU ******
+            Scanner input = new Scanner(System.in); // Initializing the scanner
+    
+            int menuOption = -1;
+            do {
+                System.out.println("****** Menu GameStart ******");
+                System.out.println("1 - Imprimir o conteúdo da base de data");
+                System.out.println("2 - Imprimir  o nº total de vendas e o valor total");
+                System.out.println("3 - Calcular o lucro total de todas as vendas");
+                System.out.println("4 - Imprimir as informações de um cliente");
+                System.out.println("5 - Imprimir os gêneros e os jogos de uma determinada publisher");
+                System.out.println("6 - Imprimir o jogo mais caro e os clientes que o cobmpraram");
+                System.out.println("7 - Sair");
+                System.out.print("Escolha uma das opções acima: ");
+    
+                // declare variables 
+                if (input.hasNextInt()) {                       // integer control
+                    menuOption = input.nextInt();
+    
+                    if (menuOption >= 1 && menuOption <= 7) {   // check if the number is within the desired range
+                        switch(menuOption){
+    
+                            case 1: {
+                                printData(data);
+                                break;
+                            }
+                            case 2:
+                                totalSalesAndTotalValue(data);
+                                break;
+                            case 3:
+                                totalProfit(data);
+                                break;
+                            case 4:
+                                customerInformation(data);
+                                break;
+                            case 5:
+                                genresAndGamesByPublisher(data);
+                                break;
+                            case 6:
+                                mostExpensiveGameAndClients(data);
+                                break;
+                            case 0:
+                                break;
+                    
+                        }
+    
+                    } else {
+                        System.out.println("Opção inválida. Escolha um número entre 0 e 6.");
+                    }
+                } else {
+                    System.out.println("Opção inválida. Escolha um número entre 0 e 6.");
+                    input.next(); // Descartar a entrada não válida do usuário
+                }
+    
+            } while (menuOption != 7);
+    
+        }
+
+
     } 
