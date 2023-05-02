@@ -34,7 +34,5 @@ public class PL09_04 {
         System.out.println(fullCircle);
         System.out.println(inputCircle);
 
-
-
     }
 }
