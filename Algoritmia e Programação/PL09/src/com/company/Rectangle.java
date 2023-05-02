@@ -2,13 +2,15 @@ package com.company;
 
 public class Rectangle {
 
-    // ATTRIBUTES
+// ATTRIBUTES
+/* -------------------------------------------------------*/
     public double width;
     public double height;
 
+
+// CONSTRUCTORS
 /* -------------------------------------------------------*/
 
-    // CONSTRUCTORS
     public Rectangle() {
 
     }
@@ -18,9 +20,11 @@ public class Rectangle {
         this.height = height;
     }
 
+
+// ENCAPSULING GETTERS AND SETTERS
 /* -------------------------------------------------------*/
 
-    // ENCAPSULING GETTERS AND SETTERS
+
     public double getWidth() {
         return width;
     }
@@ -37,7 +41,10 @@ public class Rectangle {
         this.height = height;
     }
 
+
+
     // METHODS
+/*-------------------------------------------------------*/
     public double Area(){
         double rectangle_area = (width * height);
         return rectangle_area;
@@ -48,9 +55,10 @@ public class Rectangle {
         return rectangle_perimeter;
     }
 
-/* -------------------------------------------------------*/
 
     // TO STRING
+/* -------------------------------------------------------*/
+
     @Override
     public String toString(){
         return String.format("Area = %.2f\n", Area())
