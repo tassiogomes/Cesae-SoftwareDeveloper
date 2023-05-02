@@ -1,0 +1,16 @@
+{
+  "name": "work-files-api",
+  "version": "1.0.0",
+  "description": "This is the first time I set up this type of file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/index.js"
+  },
+  "keywords": [
+    "[\"api\"",
+    "\"database\"]"
+  ],
+  "author": "Tassio Gomes",
+  "license": "ISC"
+}
