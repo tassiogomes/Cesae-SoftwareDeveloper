@@ -62,4 +62,4 @@ public class Calculator {
     public String toString() {
         return "Calculator{}";                          // return the class and it will be called in main
     }                                                   // System.out.printf("Addiction operation: %.2f\n",calculator.Addition();
-}                                                                                                            ^^^^^^^^^^^^^^^^
+}
