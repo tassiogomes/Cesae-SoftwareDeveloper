@@ -19,7 +19,7 @@ public class PL10_01 {
             fullCar.turnOn();
             fullCar2.turnOn();
 
-            fullCar.corrida(fullCar);
+            Car vencedor = fullCar2.corrida(fullCar);
 
 
         }

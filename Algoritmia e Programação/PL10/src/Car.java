@@ -94,10 +94,32 @@ public class Car {
     }
     }
 
-    public Car corrida(Car adversario){
-
-
+    public Car corrida(Car adversario) {
+        if (this.power > adversario.getPower()) { // compara potência
+            return this;
+        } else if (this.power < adversario.getPower()) {
+            return adversario;
+        } else {
+            if (this.displacements > adversario.getDisplacements()) { // compara cilindrada
+                System.out.println("O desafiado é o vencedor");
+                return this;
+            } else if (this.displacements < adversario.getDisplacements()) {
+                System.out.println("O adversário é o vencedor");
+                return adversario;
+            } else {
+                if (this.getIdade() < adversario.getIdade()) { // compara idade
+                    return this;
+                } else if (this.getIdade() > adversario.getIdade()) {
+                    System.out.println("O adversário é o vencedor");
+                    return adversario;
+                } else {
+                    System.out.println("Empate!");
+                    return null; // empate
+                }
+            }
+        }
     }
+
 
 public void exibirDetalhes(){
     System.out.printf("Brand = %s\n Model = %s\n Year = %d\n power = %.2f\n displacements %.2f\n liters_100km = %.2f\n fuelType = %s  ",
