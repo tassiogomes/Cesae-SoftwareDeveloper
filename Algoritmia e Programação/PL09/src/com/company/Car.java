@@ -4,9 +4,10 @@ public class Car {
 
 
     // ATTRIBUTES
-    private String brand;
-    private String model;
+    private String brand, model;
     private int year;
+    private double power, displacements, liters_100km;
+
 
 
     // CONSTRUCTORS
@@ -18,6 +19,7 @@ public class Car {
         this.brand = brand;
         this.model = model;
         this.year = year;
+
     }
 
 
