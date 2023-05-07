@@ -61,5 +61,10 @@ public class Calculator {
    @Override
     public String toString() {
         return "Calculator{}";                          // return the class and it will be called in main
+<<<<<<< HEAD
     }                                               // System.out.printf("Addiction operation: %.2f\n",calculator.Addition();
 }                                                                                                      /*^^^^^^^^^^^^^^^^*/
+=======
+    }                                                   // System.out.printf("Addiction operation: %.2f\n",calculator.Addition();
+}
+>>>>>>> 7d02fd85bbf75272c803eaabff11126d1dad0219
