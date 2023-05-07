@@ -4,8 +4,8 @@ public class Rectangle {
 
 // ATTRIBUTES
 /* -------------------------------------------------------*/
-    public double width;
-    public double height;
+    private double width;
+    private double height;
 
 
 // CONSTRUCTORS
@@ -46,7 +46,7 @@ public class Rectangle {
     // METHODS
 /*-------------------------------------------------------*/
     public double Area(){
-        double rectangle_area = (width * height);
+        double rectangle_area = (this.width * this.height);
         return rectangle_area;
     }
 

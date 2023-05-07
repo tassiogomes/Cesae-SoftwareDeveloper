@@ -6,29 +6,25 @@
 
 @section('content')
     <div class="container">
-        <h2 class="text-center">Utilizadores</h2>
+        <h2 class="text-center">Tasks</h2>
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Password</th>
-                    <th scope="col">Email</th>
-                    <th></th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Nome Utilizador</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($allUsers as $item)
+                @foreach ($allTasks as $item)
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
                         <td>{{ $item->name }}</td>
-                        <td>{{ $item->password }}</td>
-                        <td>{{ $item->email }}</td>
-                        <td>
-                            <a href="{{ route('show_user', $item->id) }}"><button class="btn btn-info">Ver</button></a>
-                            <a href=""><button class="btn btn-danger">Delete</button></a>
-                        </td>
-
+                        <td>{{ $item->description }}</td>
+                        <td>{{ $item->status }}</td>
+                        <td>{{ $item->usname }}</td>
                     </tr>
                 @endforeach
 

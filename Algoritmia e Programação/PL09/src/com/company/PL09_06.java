@@ -1,6 +1,6 @@
 package com.company;
 
-public class PL9_06 {
+public class PL09_06 {
 
     public static void main(String[] args) {
 

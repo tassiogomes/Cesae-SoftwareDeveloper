@@ -38,28 +38,28 @@ public class Calculator {
 
     // METHODS
 
-    public double Addition(){
-        double addResult = (number_1 + number_2);
+    public double Addition() {
+        double addResult = (this.number_1 + this.number_2);
         return addResult;
     }
 
-    public double Subtraction(){
-        double subResult = (number_1 - number_2);
+    public double Subtraction() {
+        double subResult = (this.number_1 - this.number_2);
         return subResult;
     }
 
-    public double Multiplication(){
-        double multResult = (number_1 * number_2);
+    public double Multiplication() {
+        double multResult = (this.number_1 * this.number_2);
         return multResult;
     }
 
-    public double Division(){
-        double divResult = (number_1 / number_2);
+    public double Division() {
+        double divResult = (this.number_1 / this.number_2);
         return divResult;
     }
 
-    @Override
+   @Override
     public String toString() {
         return "Calculator{}";                          // return the class and it will be called in main
-    }                                                   // System.out.printf("Addiction operation: %.2f\n",calculator.Addition();
-}                                                                                                            ^^^^^^^^^^^^^^^^
+    }                                               // System.out.printf("Addiction operation: %.2f\n",calculator.Addition();
+}                                                                                                      /*^^^^^^^^^^^^^^^^*/

@@ -41,16 +41,7 @@ Route::get('/portfolio', function () {
 Route::get('/contacts', function () {
     return "</h1>Sou os Contactos<h1>";
 })->name('contacts.show');
-Route::get('/home', function () {
-    $html = "
-   <h1>I am at Home</h1>
-   <div>
-        <a href='/portfolio'>Portfolio</a>
-        <a href=" . route('contacts.show') . ">Contactos</a>
-   <div>
-   ";
-    return $html;
-});
+
 Route::fallback(function () {
     return view('fallback');
 });
@@ -58,6 +49,9 @@ Route::fallback(function () {
 Route::get('/home_contacts', [HomeController::class, 'index'])->name('index.contacts');
 Route::get('/all_contacts', [HomeController::class, 'allContacts'])->name('contacts.all');
 
+Route::get('/add_contact', [HomeController::class, 'addUser'])->name('add_contact');
+Route::get('/view_contact/{id}', [HomeController::class, 'viewContact'])->name('view_contact');
+Route::get('/delete_contact/{id}', [HomeController::class, 'deleteContact'])->name('delete_contact');
 
 /* Software Developer */
 
@@ -71,4 +65,19 @@ Route::get(
     [UserController::class, 'all_users']
 )->name('show_all_users');
 
-Route::get('/home_add_user',   [UserController::class, 'add_user'])->name('add_user');
+Route::get(
+    '/home_all_tasks',
+    [UserController::class, 'all_tasks']
+)->name('show_all_tasks');
+
+Route::get(
+    '/view_user{id}',
+    [UserController::class, 'viewUser']
+)->name('show_user');
+
+Route::get(
+    '/delete_user{id}',
+    [UserController::class, 'deleteUser']
+)->name('delete_user');
+
+Route::get('/home_add_user',   [UserController::class, 'addUser'])->name('add_user');

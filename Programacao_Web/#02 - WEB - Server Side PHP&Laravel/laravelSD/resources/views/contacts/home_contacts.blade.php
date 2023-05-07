@@ -18,7 +18,9 @@
         <a href="{{ route('contacts.all') }}">
             <li>Ver todos</li>
         </a>
-        <li>Adicionar</li>
+        <a href="{{ route('add_contact') }}">
+            <li>Adicionar</li>
+        </a>
     </ul>
 
     <h2>{{ $myVar }}</h2>

@@ -5,7 +5,7 @@ public class Circle {
     // ****** ATTRIBUTES ******
 
     private double radius;
-    private double pi = 3.14;
+    private static double pi = 3.14;
 
 
     // ****** CONSTRUCTORS ******
@@ -28,24 +28,15 @@ public class Circle {
         this.radius = radius;
     }
 
-    public double getPi() {
-        return pi;
-    }
-
-    public void setPi(double pi) {
-        this.pi = pi;
-    }
-
-
     // ****** METHODS ******
 
     public double Area(){
-        double circle_area  = pi * Math.pow(radius, 2);
+        double circle_area  = pi * Math.pow(this.radius, 2);
         return circle_area;
     }
 
     public double Circunference(){
-        double circle_circunference = 2*(pi*radius);
+        double circle_circunference = 2*(pi * this.radius);
         return circle_circunference;
     }
 

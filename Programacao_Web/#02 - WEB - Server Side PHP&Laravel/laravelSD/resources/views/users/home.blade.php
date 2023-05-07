@@ -12,6 +12,9 @@
             <a href="{{ route('show_all_users') }}">
                 <li>Todos os utilizadores</li>
             </a>
+            <a href="{{ route('show_all_tasks') }}">
+                <li>Todas as Tarefas</li>
+            </a>
             <a href="{{ route('add_user') }}">
                 <li>Adicionar Utilizador</li>
             </a>
@@ -19,11 +22,11 @@
     </div>
 
 
-    <h1> Vamos testar as variáveis!</h1>
-    <h4>{{$aMinhaVariavel}}</h4>
+    {{--<h1> Vamos testar as variáveis!</h1>
+    <h4>{{$aMinhaVariavel}}</h4>--}}
 @endsection
 
 
 @section('endcontent')
-    <h2>sou fim do conteúdo</h2>
+    {{-- <h2>sou fim do conteúdo</h2> --}}
 @endsection

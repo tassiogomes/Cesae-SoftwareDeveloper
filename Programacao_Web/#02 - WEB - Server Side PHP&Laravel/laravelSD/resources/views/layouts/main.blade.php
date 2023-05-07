@@ -47,18 +47,18 @@
         </div>
     </nav>
 
-    <h1>Início Ficheiro
+    <h1> {{-- Início Ficheiro --}}
     </h1>
 
     @yield('content')
 
-    <h1>Fim Ficheiro
+    <h1>{{-- Fim Ficheiro --}}
     </h1>
 
     @yield('endcontent')
 
     <footer>
-        Footer
+       {{-- Footer --}}
     </footer>
 </body>
 
