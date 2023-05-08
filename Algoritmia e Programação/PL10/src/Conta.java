@@ -14,6 +14,7 @@ public class Conta {
         this.anoAbertura = anoAbertura;
         this.divida = 0;
         this.margemEmprestimo = 0;
+        atualizarMargemEmprestimo();
     }
 
     /**************** GETTERS AND SETTERS *********************/
@@ -37,14 +38,14 @@ public class Conta {
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
+    /*public void setSaldo(double saldo) {
         this.saldo = saldo;
         atualizarMargemEmprestimo();
     }
 
     public double getDivida() {
         return divida;
-    }
+    }*/
 
     public void setDivida(double divida) {
         this.divida = divida;
@@ -57,39 +58,51 @@ public class Conta {
 
     /**************** METHODS *********************/
     public boolean transferencia(double valor, Conta contaDestino) {
-        if (this.saldo >= valor) {
-            this.saldo -= valor;
-            contaDestino.saldo += valor;
-            atualizarMargemEmprestimo();
-            System.out.printf("Transferência concluída no valor de %.2f.\n", valor);
-            return true;
-        } else {
-            System.out.println("Erro ao transferir.");
+        if(valor<=0) {
+            System.out.println("Só valores positivos são aceitos!");
             return false;
+        }else if (this.saldo >= valor) {
+                this.saldo -= valor;
+                contaDestino.saldo += valor;
+                atualizarMargemEmprestimo();
+                System.out.printf("Transferência concluída no valor de %.2f.\n", valor);
+                return true;
+            } else {
+                System.out.println("Erro ao transferir.");
+                return false;
+            }
         }
-    }
 
     public void atualizarMargemEmprestimo() {
         this.margemEmprestimo = this.saldo * 0.9;
     }
 
     public void depositar(double valor) {
-        this.saldo += valor;
-        atualizarMargemEmprestimo();
-        System.out.printf("Depósito de %.2f realizado com sucesso. Saldo atual: %.2f\n", valor, this.saldo);
+        if (valor <= 0) {
+            System.out.println("Só valores positivos são aceitos!");
+        } else {
+            this.saldo += valor;
+            atualizarMargemEmprestimo();
+            System.out.printf("Depósito de %.2f realizado com sucesso. Saldo atual: %.2f\n", valor, this.saldo);
+        }
     }
 
     public boolean levantar(double valor) {
-        if (this.saldo - valor >= this.margemEmprestimo) {
+        if(valor <= 0){
+            System.out.println("Só valores positivos são aceitos!");
+            return false;
+        } else if (this.saldo < valor) {
+            System.out.println("Não há saldo suficiente para realizar o levantamento.");
+            return false;
+        } else {
             this.saldo -= valor;
             atualizarMargemEmprestimo();
             System.out.printf("Levantamento de %.2f realizado com sucesso. Saldo atual: %.2f\n", valor, this.saldo);
             return true;
-        } else {
-            System.out.println("Não há saldo suficiente para realizar o levantamento.");
-            return false;
         }
     }
+
+
 
     public boolean pedirEmprestimo(double valor){
         if(this.margemEmprestimo >= valor && this.divida ==0 ) {
