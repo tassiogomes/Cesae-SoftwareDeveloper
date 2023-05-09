@@ -27,8 +27,77 @@ public class Imovel {
 
 
     /****** GETTERS AND SETTERS ******/
+    public String getRua() {
+        return rua;
+    }
 
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
 
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public int getNumeroPorta() {
+        return numeroPorta;
+    }
+
+    public void setNumeroPorta(int numeroPorta) {
+        this.numeroPorta = numeroPorta;
+    }
+
+    public int getCasasBanho() {
+        return casasBanho;
+    }
+
+    public void setCasasBanho(int casasBanho) {
+        this.casasBanho = casasBanho;
+    }
+
+    public int getNumeroQuartos() {
+        return numeroQuartos;
+    }
+
+    public void setNumeroQuartos(int numeroQuartos) {
+        this.numeroQuartos = numeroQuartos;
+    }
+
+    public double getArea() {
+        return area;
+    }
+
+    public void setArea(double area) {
+        this.area = area;
+    }
+
+    public double getAreaPiscina() {
+        return areaPiscina;
+    }
+
+    public void setAreaPiscina(double areaPiscina) {
+        this.areaPiscina = areaPiscina;
+    }
+
+    public TipoImovel getTipoImovel() {
+        return tipoImovel;
+    }
+
+    public void setTipoImovel(TipoImovel tipoImovel) {
+        this.tipoImovel = tipoImovel;
+    }
+
+    public TipoAcabamento getTipoAcabamento() {
+        return tipoAcabamento;
+    }
+
+    public void setTipoAcabamento(TipoAcabamento tipoAcabamento) {
+        this.tipoAcabamento = tipoAcabamento;
+    }
 
     /****** METHODS ******/
     public double calcular(){
@@ -57,10 +126,10 @@ public class Imovel {
         return valorBase;
     }
 
+    public void mostrarDetalhes(){
+        System.out.printf("Rua: %s\n Cidade: %s \n Nº da porta: %d\n Nº casas de banho: %d\n Nº de quartos: %d\n Area: %.2f\n Area da piscina: %.2f\n", rua, cidade, numeroPorta, casasBanho, numeroQuartos, area, areaPiscina);
 
-
-
+    }
 
 
 }
-
