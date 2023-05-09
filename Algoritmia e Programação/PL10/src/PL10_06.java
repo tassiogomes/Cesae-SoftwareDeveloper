@@ -21,6 +21,8 @@ public class PL10_06 {
         competicao2.adicionarAtleta(atleta4);
         competicao2.adicionarAtleta(atleta5);
 
+        competicao1.adicionarCompeticao(Lis);
+
         //Adicionando competições à lista de competições
         ArrayList<Competicao> listaCompeticoes = new ArrayList<>();
         listaCompeticoes.add(competicao1);
@@ -38,4 +40,15 @@ public class PL10_06 {
     }
 
 }
-    
+    /* Competicao competicao1 = new Competicao("Jogos Olímpicos", "Japão");
+ArrayList<Atleta> listaAtletas1 = new ArrayList<>();
+listaAtletas1.add(atleta1);
+listaAtletas1.add(atleta2);
+listaAtletas1.add(atleta3);
+competicao1.adicionarCompeticao(listaAtletas1);
+
+Competicao competicao2 = new Competicao("Campeonato Mundial", "Brasil");
+ArrayList<Atleta> listaAtletas2 = new ArrayList<>();
+listaAtletas2.add(atleta4);
+listaAtletas2.add(atleta5);
+competicao2.adicionarCompeticao(listaAtletas2);*/
