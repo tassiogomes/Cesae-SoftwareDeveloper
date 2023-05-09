@@ -127,8 +127,26 @@ public class Imovel {
     }
 
     public void mostrarDetalhes(){
-        System.out.printf("Rua: %s\n Cidade: %s \n Nº da porta: %d\n Nº casas de banho: %d\n Nº de quartos: %d\n Area: %.2f\n Area da piscina: %.2f\n", rua, cidade, numeroPorta, casasBanho, numeroQuartos, area, areaPiscina);
+        System.out.printf("Rua: %s\n Cidade: %s \n Nº da porta: %d\n " +
+                            "Nº casas de banho: %d\n Nº de quartos: %d\n " +
+                            "Area: %.2f\n Area da piscina: %.2f\n",
+                            rua, cidade, numeroPorta, casasBanho, numeroQuartos, area, areaPiscina);
+    }
 
+    public boolean compararImoveis(double valorComparar) {
+        double valorImovel = this.calcular();
+
+
+        if (valorImovel > valorComparar) {
+            System.out.println("Este imóvel é mais caro.");
+            return true;
+        } else if (valorComparar > valorImovel ) {
+            System.out.println("O outro imóvel é mais caro.");
+            return false;
+        } else {
+            System.out.println("Os imóveis tem o mesmo valor!");
+            return false;
+        }
     }
 
 
