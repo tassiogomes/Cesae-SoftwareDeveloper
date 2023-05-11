@@ -6,7 +6,7 @@ public class Animal {
     /****** ATTRIBUTES ******/
     private String nome, especie, pais_origem;
     private double peso;
-    private ArrayList<String> alimentacao;
+        private ArrayList<String> alimentacao;
 
 
 
