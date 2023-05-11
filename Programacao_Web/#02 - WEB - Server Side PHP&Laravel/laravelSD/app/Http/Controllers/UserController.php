@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -56,11 +57,9 @@ class UserController extends Controller
 
     public function deleteUser($id)
     {
-
         DB::table('tasks')
             ->where('users_id', $id)
             ->delete();
-
 
         DB::table('users')
             ->where('id', $id)
@@ -80,7 +79,6 @@ class UserController extends Controller
 
     public function deleteTask($id)
     {
-
         DB::table('tasks')
             ->where('id', $id)
             ->delete();
@@ -92,6 +90,52 @@ class UserController extends Controller
     {
         return view('users.add_user');
     }
+/**** */
+    public function addTask()
+    {
+        $allUsers = DB::table('users') //query buscando os users
+        ->get();
+        return view('users.add_task', compact('allUsers')); // passando para allUsers
+    }
+
+
+    public function createTask(Request $request)
+    {
+        $myUser = $request->all();
+
+        $request->validate([
+            'user_id' => 'required|unique:users',
+            'task' => 'required|string',
+        ]);
+        DB::table('tasks')->insert([
+
+            'task' => 'required|string',
+           
+           ]);
+    }
+/****** */
+
+
+
+    public function createUser(Request $request)
+    {
+        $myUser = $request->all();
+
+        $request->validate([
+            'email' => 'required|email|unique:users',
+            'name' => 'required|string',
+            'password' => 'required',
+        ]);
+
+        User::insert([
+            'email' => $request->email,
+            'name' =>  $request->name,
+            'password' => Hash::make($request->password)
+        ]);
+
+        return redirect('home_all_users')->with('message', 'Utilizador adicioonado com sucesso');
+    }
+
     protected function getCesaeInfo()
     {
         $cesaeInfo = [
@@ -105,7 +149,6 @@ class UserController extends Controller
 
     protected function getAllTasks()
     {
-
         $allTasks = DB::table('tasks')
             ->join('users', 'users.id', '=', 'tasks.users_id')
             ->select('tasks.*', 'users.name as usname')
@@ -113,4 +156,5 @@ class UserController extends Controller
 
         return $allTasks;
     }
+    
 }
