@@ -6,9 +6,9 @@
 
 @section('content')
     <div class="container">
-        <h1>Detalhes do User</h1>
-        <h3>{{ $ourUser->name }}</h3>
-        <h3>{{ $ourUser->email }}</h3>
+        <h1>Detalhes da Tarefa</h1>
+        <h3>Nome:{{ $ourTask->name }}</h3>
+        <h3>Descrição:{{ $ourTask->description }}</h3>
 
     </div>
 

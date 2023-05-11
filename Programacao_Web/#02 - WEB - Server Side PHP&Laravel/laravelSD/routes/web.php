@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -38,20 +36,10 @@ Route::get('/hello_world/software_dev', function () {
 Route::get('/portfolio', function () {
     return "</h1>Sou o Portfólio<h1>";
 });
-Route::get('/contacts', function () {
-    return "</h1>Sou os Contactos<h1>";
-})->name('contacts.show');
 
 Route::fallback(function () {
     return view('fallback');
 });
-
-Route::get('/home_contacts', [HomeController::class, 'index'])->name('index.contacts');
-Route::get('/all_contacts', [HomeController::class, 'allContacts'])->name('contacts.all');
-
-Route::get('/add_contact', [HomeController::class, 'addUser'])->name('add_contact');
-Route::get('/view_contact/{id}', [HomeController::class, 'viewContact'])->name('view_contact');
-Route::get('/delete_contact/{id}', [HomeController::class, 'deleteContact'])->name('delete_contact');
 
 /* Software Developer */
 
@@ -71,7 +59,17 @@ Route::get(
 )->name('show_all_tasks');
 
 Route::get(
-    '/view_user{id}',
+    '/view_task/id={id}',
+    [UserController::class, 'viewTask']
+)->name('show_task');
+
+Route::get(
+    '/delete_task{id}',
+    [UserController::class, 'deleteTask']
+)->name('delete_task');
+
+Route::get(
+    '/view_user/id={id}',
     [UserController::class, 'viewUser']
 )->name('show_user');
 

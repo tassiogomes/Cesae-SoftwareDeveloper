@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
+
 class UserController extends Controller
 {
     public function index()
@@ -13,7 +14,6 @@ class UserController extends Controller
 
         $usersModel = User::all();
 
-        file_put_contents("usersModel.txt", print_r($usersModel, true));
         return view('users.home', compact('aMinhaVariavel'));
     }
 
@@ -25,10 +25,14 @@ class UserController extends Controller
             'nome3' => 'Rúben',
         ];
 
-        $allUsers = DB::table('users')
-            ->get();
-
-        file_put_contents("allUsers.txt", print_r($allUsers, true));
+        if (request()->query('user_id')) {
+            $allUsers = DB::table('users')
+                ->where('id', request()->query('user_id'))
+                ->get();
+        } else {
+            $allUsers = DB::table('users')
+                ->get();
+        }
 
         $cesaeInfo = $this->getCesaeInfo();
 
@@ -43,13 +47,50 @@ class UserController extends Controller
 
     public function viewUser($id)
     {
-        $ourUser = User::where('id', $id)->first();
+        $ourUser = DB::table('users')
+            ->where('id', $id)
+            ->first();
 
         return view('users.view_user', compact('ourUser'));
     }
+
+    public function deleteUser($id)
+    {
+
+        DB::table('tasks')
+            ->where('users_id', $id)
+            ->delete();
+
+
+        DB::table('users')
+            ->where('id', $id)
+            ->delete();
+
+        return back();
+    }
+
+    public function viewTask($id)
+    {
+        $ourTask = DB::table('tasks')
+            ->where('id', $id)
+            ->first();
+
+        return view('users.view_task', compact('ourTask'));
+    }
+
+    public function deleteTask($id)
+    {
+
+        DB::table('tasks')
+            ->where('id', $id)
+            ->delete();
+
+        return back();
+    }
+
     public function addUser()
     {
-        return view('users.all_users');
+        return view('users.add_user');
     }
     protected function getCesaeInfo()
     {
@@ -69,10 +110,6 @@ class UserController extends Controller
             ->join('users', 'users.id', '=', 'tasks.users_id')
             ->select('tasks.*', 'users.name as usname')
             ->get();
-
-
-        file_put_contents("test.txt", $allTasks);
-
 
         return $allTasks;
     }
