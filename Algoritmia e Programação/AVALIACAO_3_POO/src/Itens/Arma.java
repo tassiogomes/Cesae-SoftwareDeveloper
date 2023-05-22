@@ -1,5 +1,4 @@
 package Itens;
-package Entidades;
 
 import java.util.ArrayList;
 

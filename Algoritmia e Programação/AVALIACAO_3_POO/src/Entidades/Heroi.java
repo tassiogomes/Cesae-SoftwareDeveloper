@@ -1,7 +1,6 @@
 package Entidades;
-package Itens;
-
-
+import Itens.Arma;
+import Itens.PocaoHP;
 
 import java.util.ArrayList;
 
@@ -12,7 +11,7 @@ public abstract class Heroi extends Entidade {
     private int nivel;
     private int ouro;
     private Arma arma;
-    private ArrayList<Pocao> pocoes;
+    private ArrayList<PocaoHP> pocoes;
 
 
 
@@ -65,11 +64,11 @@ public abstract class Heroi extends Entidade {
         this.arma = arma;
     }
 
-    public ArrayList<Pocao> getPoções() {
+    public ArrayList<PocaoHP> getPoções() {
         return pocoes;
     }
 
-    public void setPoções(ArrayList<Pocao> poções) {
+    public void setPoções(ArrayList<PocaoHP> poções) {
         this.pocoes = poções;
     }
 
