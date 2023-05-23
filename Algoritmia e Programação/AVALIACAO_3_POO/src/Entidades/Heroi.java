@@ -28,7 +28,7 @@ public abstract class Heroi extends Entidade {
      * @param arma
      * @param poções
      */
-    public Heroi(String nome, int vida, int forca, int nivel, int ouro, Arma arma, ArrayList<Poção> poções) {
+    public Heroi(String nome, int vida, int forca, int nivel, int ouro, Arma arma, ArrayList<PocaoHP> poções) {
         super(nome, vida, forca);
         this.nivel = nivel;
         this.ouro = ouro;
@@ -36,7 +36,24 @@ public abstract class Heroi extends Entidade {
         this.pocoes = pocoes;
     }
 
+    /**
+     * Método para confrontar o NPC
+     * @param npc
+     */
     public abstract void atacar(NPC npc);
+
+    /**
+     * Método para adicionar uma pocao ao ArrayList de PocaoHP
+     * @param pocao
+     */
+    public void adicionarPocao(PocaoHP pocao) {  // MÉTODO NÃO PEDIDO NO ENUNCIADO
+        pocoes.add(pocao);
+    }
+
+    public void decrementarOuro(int quantidade) {
+        ouro -= quantidade;
+    }
+
 
 
     /** --------------------------- GETTERS AND SETTERS  ----------------------------------*/
