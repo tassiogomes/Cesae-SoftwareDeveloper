@@ -52,7 +52,7 @@ public class Vendedor {
                 heroi.setArma(arma);    // arma da classe Heroi armazena um item (que ja foi verificado e convertido pro tipo arma)
             }
             // Verifica se o item é uma PocaoHP e adiciona a poção ao heroi
-            else if (item instanceof PocaoHP) {
+            else if (item instanceof PocaoHP) { // verifica se item do tipo é uma instancia de PocaoHP
                 PocaoHP pocao = (PocaoHP) item;
                 heroi.adicionarPocao(pocao);
             }
