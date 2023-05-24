@@ -41,6 +41,7 @@ public class Cavaleiro extends Heroi {
                 this.incrementarOuro(10);
                 break;
             }
+
         }
     }
 
