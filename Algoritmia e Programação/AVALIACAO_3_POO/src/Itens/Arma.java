@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Arma extends ItemHeroi{
     private int ataque;
 
-    public Arma(String nome, int preco, ArrayList<String> tiposHeroi, int ataque) {
+    public Arma(String nome, int preco, ArrayList<TiposHeroi> tiposHeroi, int ataque) {
         super(nome, preco, tiposHeroi);
         this.ataque = ataque;
     }

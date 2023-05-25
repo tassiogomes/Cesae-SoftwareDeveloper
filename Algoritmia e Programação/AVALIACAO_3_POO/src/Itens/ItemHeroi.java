@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public abstract class ItemHeroi{
     private String nome;
     private int preco;
-    private ArrayList<String> tiposHeroi;
+    private ArrayList<TiposHeroi> tiposHeroi;
 
 
     /** --------------------------- CONSTRUTORES ----------------------------------*/
@@ -16,12 +16,11 @@ public abstract class ItemHeroi{
      * @param preco
      * @param tiposHeroi
      */
-    public ItemHeroi(String nome, int preco, ArrayList<String> tiposHeroi) {
+    public ItemHeroi(String nome, int preco, ArrayList<TiposHeroi> tiposHeroi) {
         this.nome = nome;
         this.preco = preco;
         this.tiposHeroi = tiposHeroi;
     }
-
 
     /**
      * Método obrigatório da classe heroi
@@ -47,14 +46,11 @@ public abstract class ItemHeroi{
         this.preco = preco;
     }
 
-    public ArrayList<String> getTiposHeroi() {
+    public ArrayList<TiposHeroi> getTiposHeroi() {
         return tiposHeroi;
     }
 
-    public void setTiposHeroi(ArrayList<String> tiposHeroi) {
+    public void setTiposHeroi(ArrayList<TiposHeroi> tiposHeroi) {
         this.tiposHeroi = tiposHeroi;
     }
-
-
-
 }

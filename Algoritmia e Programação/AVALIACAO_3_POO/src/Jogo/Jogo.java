@@ -150,6 +150,9 @@ public class Jogo {
         NPC npc5 = new NPC("NPC 5", 90, 9);
         npc5.mostrarDetalhes();
         // Resto da lógica do labirinto...
+
+
+
     }
 
     /******************* Instanciar os personagens *************************/
