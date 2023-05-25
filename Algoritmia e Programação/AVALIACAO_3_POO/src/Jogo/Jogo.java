@@ -1,6 +1,9 @@
 package Jogo;
 import Entidades.*;
+import Itens.PocaoHP;
+import Itens.TiposHeroi;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -149,7 +152,25 @@ public class Jogo {
 
         NPC npc5 = new NPC("NPC 5", 90, 9);
         npc5.mostrarDetalhes();
+
+        // instância do arraylist que tem que ser passado como parâmetro na instância da PocaoHP
+        ArrayList<TiposHeroi> tiposHeroi = new ArrayList<>();
+        tiposHeroi.add(TiposHeroi.CAVALEIRO);
+        tiposHeroi.add(TiposHeroi.ARQUEIRO);
+        tiposHeroi.add(TiposHeroi.FEITICEIRO);
+
+        // instância das PocaoHP
+        PocaoHP pocao1 = new PocaoHP("PocaoHP1",10, tiposHeroi, 60);
+        PocaoHP pocao2 = new PocaoHP("PocaoHP2",20, tiposHeroi, 85);
+        PocaoHP pocao3 = new PocaoHP("PocaoHP3",30, tiposHeroi, 90);
+        PocaoHP pocao4 = new PocaoHP("PocaoHP4",40, tiposHeroi, 135);
+
+
+
+
+
         // Resto da lógica do labirinto...
+
 
 
 
