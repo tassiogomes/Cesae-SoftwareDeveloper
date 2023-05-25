@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
+
 class UserController extends Controller
 {
     public function index()
@@ -26,12 +27,22 @@ class UserController extends Controller
             'nome3' => 'Rúben',
         ];
 
+        $search = request()->query('search') ? request()->query('search') : null;
+
         if (request()->query('user_id')) {
             $allUsers = DB::table('users')
                 ->where('id', request()->query('user_id'))
                 ->get();
         } else {
             $allUsers = DB::table('users')
+                ->get();
+        }
+
+
+        if ($search) {
+            $allUsers = DB::table('users')
+                ->where('name', 'LIKE', "%{$search}%")
+                ->orWhere('email', 'LIKE', "%{$search}%")
                 ->get();
         }
 
@@ -43,7 +54,7 @@ class UserController extends Controller
     public function all_tasks()
     {
         $allTasks = $this->getAllTasks();
-        return view('users.all_tasks', compact('allTasks'));
+        return view('tasks.all_tasks', compact('allTasks'));
     }
 
     public function viewUser($id)
@@ -57,9 +68,11 @@ class UserController extends Controller
 
     public function deleteUser($id)
     {
+
         DB::table('tasks')
             ->where('users_id', $id)
             ->delete();
+
 
         DB::table('users')
             ->where('id', $id)
@@ -74,11 +87,12 @@ class UserController extends Controller
             ->where('id', $id)
             ->first();
 
-        return view('users.view_task', compact('ourTask'));
+        return view('tasks.view_task', compact('ourTask'));
     }
 
     public function deleteTask($id)
     {
+
         DB::table('tasks')
             ->where('id', $id)
             ->delete();
@@ -90,47 +104,26 @@ class UserController extends Controller
     {
         return view('users.add_user');
     }
-/**** */
-    public function addTask()
-    {
-        $allUsers = DB::table('users') //query buscando os users
-        ->get();
-        return view('users.add_task', compact('allUsers')); // passando para allUsers
-    }
-
-
-    public function createTask(Request $request)
-    {
-        $myUser = $request->all();
-
-        $request->validate([
-            'user_id' => 'required|unique:users',
-            'task' => 'required|string',
-        ]);
-        DB::table('tasks')->insert([
-
-            'task' => 'required|string',
-           
-           ]);
-    }
-/****** */
-
-
 
     public function createUser(Request $request)
     {
+
+
         $myUser = $request->all();
 
-        $request->validate([
-            'email' => 'required|email|unique:users',
-            'name' => 'required|string',
-            'password' => 'required',
-        ]);
+        $request->validate(
+            [
+                'email' => 'required|email|unique:users',
+                'name' => 'required|string',
+                'password' => 'required',
+            ]
+        );
 
         User::insert([
             'email' => $request->email,
             'name' =>  $request->name,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'user_type' => 0
         ]);
 
         return redirect('home_all_users')->with('message', 'Utilizador adicioonado com sucesso');
@@ -149,6 +142,7 @@ class UserController extends Controller
 
     protected function getAllTasks()
     {
+
         $allTasks = DB::table('tasks')
             ->join('users', 'users.id', '=', 'tasks.users_id')
             ->select('tasks.*', 'users.name as usname')
@@ -156,5 +150,31 @@ class UserController extends Controller
 
         return $allTasks;
     }
-    
+
+    public function addTask()
+    {
+        $allUsers = DB::table('users')
+            ->get();
+        return view('tasks.add_task', compact('allUsers'));
+    }
+
+    public function storeTask(Request $request)
+    {
+        $request->validate(
+            [
+                'name' => 'required|string|max:50',
+                'description' => 'required',
+                'user_id' => 'required',
+            ]
+        );
+
+        DB::table('tasks')->insert([
+            'name' => $request->name,
+            'description' =>  $request->description,
+            'users_id' => $request->user_id,
+
+        ]);
+
+        return redirect()->route('show_all_tasks')->with('message', 'Tarefa adicionada com sucesso');
+    }
 }

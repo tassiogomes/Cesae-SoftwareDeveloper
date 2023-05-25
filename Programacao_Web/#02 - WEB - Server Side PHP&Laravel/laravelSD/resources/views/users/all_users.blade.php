@@ -10,16 +10,21 @@
             <div class="alert alert-success">{{ session('message') }}</div>
         @endif
         <h2 class="text-center">Utilizadores</h2>
-        <form method="GET">
-            <select class="custom-select" name="user_id" onchange="this.form.submit()">
-                <option value="" selected>Todos os Contactos</option>
-                @foreach ($allUsers as $item)
-                    <option @if ($item->id == request()->query('user_id')) selected @endif value="{{ $item->id }}">
-                        {{ $item->name }}
-                    </option>
-                @endforeach
-            </select>
-        </form>
+        <div>
+            <form method="GET">
+                <select class="custom-select" name="user_id" onchange="this.form.submit()">
+                    <option value="" selected>Todos os Contactos</option>
+                    @foreach ($allUsers as $item)
+                        <option @if ($item->id == request()->query('user_id')) selected @endif value="{{ $item->id }}">
+                            {{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </form>
+            <form method="GET">
+                <input class="" name="search" value="{{ request()->query('search') }}" placeholder="Procurar">
+                <button class="btn btn-secondary">Procurar</button>
+            </form>
+        </div>
         <table class="table">
             <thead>
                 <tr>
@@ -38,15 +43,14 @@
                         <td>{{ $item->password }}</td>
                         <td>{{ $item->email }}</td>
                         <td>
-                            <a href="{{ route('show_user', $item->id) }}">
-                                <button class="btn btn-info">Ver</button>
-                            </a>
-                            <a href="{{ route('delete_user', $item->id) }}">
-                                <button class="btn btn-danger">Delete</button>
-                            </a>
+                            <a href="{{ route('show_user', $item->id) }}"><button class="btn btn-info">Ver</button></a>
+                            <a href="{{ route('delete_user', $item->id) }}"><button
+                                    class="btn btn-danger">Delete</button></a>
                         </td>
                     </tr>
                 @endforeach
+
+
             </tbody>
         </table>
         {{-- <h1>Olá, sou a lista de utilizadores</h1> --}}

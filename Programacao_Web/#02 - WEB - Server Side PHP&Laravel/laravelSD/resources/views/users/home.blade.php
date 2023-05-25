@@ -18,9 +18,6 @@
             <a href="{{ route('add_user') }}">
                 <li>Adicionar Utilizador</li>
             </a>
-            <a href="{{ route('add_task') }}">
-                <li>Adicionar Tarefa</li>
-            </a>
         </ul>
     </div>
 
