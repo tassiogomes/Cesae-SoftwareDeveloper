@@ -1,5 +1,6 @@
 package Jogo;
 import Entidades.*;
+import Itens.Arma;
 import Itens.PocaoHP;
 import Itens.TiposHeroi;
 
@@ -9,11 +10,10 @@ import java.util.Scanner;
 
 public class Jogo {
     public static void main(String[] args) {
-        Jogo jogo = new Jogo();
-        jogo.labirinto();
+        labirinto();
     }
 
-    public void labirinto() {
+    public static void labirinto() {
         Scanner scanner = new Scanner(System.in);
 
         /*********** Selecionar o tipo de herói *******************/
@@ -166,6 +166,37 @@ public class Jogo {
         PocaoHP pocao4 = new PocaoHP("PocaoHP4",40, tiposHeroi, 135);
 
 
+        // instância de varios arraylist que tem que ser passado como parâmetro na instância de Arma
+
+                // Todos os tipo de heroi
+                ArrayList<TiposHeroi> todosTiposHeroi = new ArrayList<>();
+                todosTiposHeroi.add(TiposHeroi.CAVALEIRO);
+                todosTiposHeroi.add(TiposHeroi.ARQUEIRO);
+                todosTiposHeroi.add(TiposHeroi.FEITICEIRO);
+
+
+                // Combinação 5
+                ArrayList<TiposHeroi> heroiCavaleiro = new ArrayList<>();
+                heroiCavaleiro.add(TiposHeroi.CAVALEIRO);
+                // Faça o que precisa com a combinacao5
+
+                // Combinação 6
+                ArrayList<TiposHeroi> heroiArqueiro = new ArrayList<>();
+                heroiCavaleiro.add(TiposHeroi.ARQUEIRO);
+                // Faça o que precisa com a combinacao6
+
+                // Combinação 7
+                ArrayList<TiposHeroi> heroiFeiticeiro = new ArrayList<>();
+                heroiCavaleiro.add(TiposHeroi.FEITICEIRO);
+                // Faça o que precisa com a combinacao7
+
+            Arma arma1 = new Arma("Arma1", 50, todosTiposHeroi,20);
+            Arma arma2 = new Arma("Arma2", 50, heroiCavaleiro,20);
+            Arma arma3 = new Arma("Arma3", 50, heroiArqueiro,20);
+            Arma arma4 = new Arma("Arma4", 50, heroiFeiticeiro,20);
+            }
+
+
 
 
 
@@ -174,24 +205,23 @@ public class Jogo {
 
 
 
-    }
 
     /******************* Instanciar os personagens *************************/
-    private Cavaleiro criarCavaleiro() {
+    private static  Cavaleiro criarCavaleiro() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o nome do Cavaleiro:");
         String nome = scanner.nextLine();
         return new Cavaleiro(nome, 0, 0, 0, 0, null, null);
     }
 
-    private Feiticeiro criarFeiticeiro() {
+    private static Feiticeiro criarFeiticeiro() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o nome do Feiticeiro:");
         String nome = scanner.nextLine();
         return new Feiticeiro(nome, 0, 0, 0, 0, null, null);
     }
 
-    private Arqueiro criarArqueiro() {
+    private static Arqueiro criarArqueiro() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o nome do Arqueiro:");
         String nome = scanner.nextLine();

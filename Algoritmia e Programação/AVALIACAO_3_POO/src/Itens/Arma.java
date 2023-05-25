@@ -8,6 +8,7 @@ public class Arma extends ItemHeroi{
     public Arma(String nome, int preco, ArrayList<TiposHeroi> tiposHeroi, int ataque) {
         super(nome, preco, tiposHeroi);
         this.ataque = ataque;
+
     }
 
     public int getAtaque() {
