@@ -21,6 +21,10 @@ public abstract class ItemHeroi{
         this.preco = preco;
         this.tiposHeroi = tiposHeroi;
     }
+    public ItemHeroi(ArrayList<TiposHeroi> tiposHeroi) {
+        this.tiposHeroi = tiposHeroi;
+    }
+
 
     /**
      * Método obrigatório da classe heroi

@@ -22,6 +22,10 @@ public class PocaoHP extends ItemHeroi {
 
     @Override
     public void mostrarDetalhes() {
+        System.out.println("Nome:" + getNome());
+        System.out.println("Preço:" + getPreco());
+        System.out.println("Heroi:" + getTiposHeroi());
+        System.out.println("Curar" + getCurar());
 
     }
     /** --------------------------- GETTERS E SETTERS ----------------------------------*/

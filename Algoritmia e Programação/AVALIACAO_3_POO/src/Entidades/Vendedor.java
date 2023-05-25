@@ -18,6 +18,8 @@ public class Vendedor {
         this.inventario = new ArrayList<>();
     }
 
+
+
     /**
      * Método para adicionar item ao atributo inventario
      * @param item
@@ -30,7 +32,7 @@ public class Vendedor {
     /**
      * Método de imprimir inventário (ArrayList que recebe um item da classe ItemHeroi)
      */
-    public void imprimirInventario() {
+    public void imprimirInventario() {                                                           /** precisa de um arraylist como parametro? */
         System.out.println("Inventário do Vendedor:");
         for (ItemHeroi item : inventario) {         // Percorre o inventario e imprime os detalhes de cada item
             item.mostrarDetalhes();

@@ -1,6 +1,7 @@
 package Jogo;
 import Entidades.*;
 import Itens.Arma;
+import Itens.ItemHeroi;
 import Itens.PocaoHP;
 import Itens.TiposHeroi;
 
@@ -164,45 +165,74 @@ public class Jogo {
         PocaoHP pocao2 = new PocaoHP("PocaoHP2",20, tiposHeroi, 85);
         PocaoHP pocao3 = new PocaoHP("PocaoHP3",30, tiposHeroi, 90);
         PocaoHP pocao4 = new PocaoHP("PocaoHP4",40, tiposHeroi, 135);
+        PocaoHP pocao5 = new PocaoHP("Poção de Energia", 30, tiposHeroi, 0);
+        PocaoHP pocao6 = new PocaoHP("Poção de Cura Avançada", 75, tiposHeroi, 0);
+        PocaoHP pocao7 = new PocaoHP("Poção de Vida Extra", 50, tiposHeroi, 0);
 
 
         // instância de varios arraylist que tem que ser passado como parâmetro na instância de Arma
 
-                // Todos os tipo de heroi
-                ArrayList<TiposHeroi> todosTiposHeroi = new ArrayList<>();
-                todosTiposHeroi.add(TiposHeroi.CAVALEIRO);
-                todosTiposHeroi.add(TiposHeroi.ARQUEIRO);
-                todosTiposHeroi.add(TiposHeroi.FEITICEIRO);
+            // Todos os tipo de heroi
+            ArrayList<TiposHeroi> todosTiposHeroi = new ArrayList<>();
+            todosTiposHeroi.add(TiposHeroi.CAVALEIRO);
+            todosTiposHeroi.add(TiposHeroi.ARQUEIRO);
+            todosTiposHeroi.add(TiposHeroi.FEITICEIRO);
 
 
-                // Combinação 5
-                ArrayList<TiposHeroi> heroiCavaleiro = new ArrayList<>();
-                heroiCavaleiro.add(TiposHeroi.CAVALEIRO);
-                // Faça o que precisa com a combinacao5
+            // Combinação 5
+            ArrayList<TiposHeroi> heroiCavaleiro = new ArrayList<>();
+            heroiCavaleiro.add(TiposHeroi.CAVALEIRO);
+            // Faça o que precisa com a combinacao5
 
-                // Combinação 6
-                ArrayList<TiposHeroi> heroiArqueiro = new ArrayList<>();
-                heroiCavaleiro.add(TiposHeroi.ARQUEIRO);
-                // Faça o que precisa com a combinacao6
+            // Combinação 6
+            ArrayList<TiposHeroi> heroiArqueiro = new ArrayList<>();
+            heroiArqueiro.add(TiposHeroi.ARQUEIRO);
+            // Faça o que precisa com a combinacao6
 
-                // Combinação 7
-                ArrayList<TiposHeroi> heroiFeiticeiro = new ArrayList<>();
-                heroiCavaleiro.add(TiposHeroi.FEITICEIRO);
-                // Faça o que precisa com a combinacao7
+            // Combinação 7
+            ArrayList<TiposHeroi> heroiFeiticeiro = new ArrayList<>();
+            heroiFeiticeiro.add(TiposHeroi.FEITICEIRO);
+            // Faça o que precisa com a combinacao7
 
             Arma arma1 = new Arma("Arma1", 50, todosTiposHeroi,20);
-            Arma arma2 = new Arma("Arma2", 50, heroiCavaleiro,20);
-            Arma arma3 = new Arma("Arma3", 50, heroiArqueiro,20);
-            Arma arma4 = new Arma("Arma4", 50, heroiFeiticeiro,20);
+            Arma arma2 = new Arma("Arma2", 60, heroiCavaleiro,30);
+            Arma arma3 = new Arma("Arma3", 70, heroiArqueiro,40);
+            Arma arma4 = new Arma("Arma4", 80, heroiFeiticeiro,50);;
+            Arma arma5 = new Arma("Flecha Envenenada", 80, todosTiposHeroi, 35);
+            Arma arma6 = new Arma("Varinha Arcana", 90, heroiFeiticeiro, 25);
+            Arma arma7 = new Arma("Espada Lendária", 110, heroiArqueiro, 55);
+            Arma arma8 = new Arma("Arco Mágico", 100, heroiArqueiro, 45);
+            Arma arma9 = new Arma("Cajado das Sombras", 85, heroiFeiticeiro, 35);
+
+
+            // instancia do vendedor que recebe arraylist de itens já instanciados (inventario)
+            Vendedor vendedor1 = new Vendedor();
+            // Continuação do código anterior...
+            vendedor1.adicionarItem(arma1);
+            vendedor1.adicionarItem(arma2);
+            vendedor1.adicionarItem(arma3);
+            vendedor1.adicionarItem(arma4);
+            vendedor1.adicionarItem(arma5);
+            vendedor1.adicionarItem(arma6);
+            vendedor1.adicionarItem(arma7);
+            vendedor1.adicionarItem(arma8);
+            vendedor1.adicionarItem(arma9);
+            vendedor1.adicionarItem(pocao1);
+            vendedor1.adicionarItem(pocao2);
+            vendedor1.adicionarItem(pocao3);
+            vendedor1.adicionarItem(pocao4);
+            vendedor1.adicionarItem(pocao5);
+            vendedor1.adicionarItem(pocao6);
+            vendedor1.adicionarItem(pocao7);
+
+            vendedor1.imprimirInventario();
+
+
             }
 
 
 
-
-
         // Resto da lógica do labirinto...
-
-
 
 
 

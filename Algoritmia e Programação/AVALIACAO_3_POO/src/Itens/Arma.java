@@ -21,6 +21,10 @@ public class Arma extends ItemHeroi{
 
     @Override
     public void mostrarDetalhes() {
+        System.out.println("Nome:" + getNome());
+        System.out.println("Preço:" + getPreco());
+        System.out.println("Heroi:" + getTiposHeroi());
+        System.out.println("Ataque" + getAtaque());
 
     }
 }
