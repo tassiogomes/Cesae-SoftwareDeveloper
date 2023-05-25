@@ -29,7 +29,7 @@ public abstract class Entidade {
      */
     public abstract void mostrarDetalhes();
 
-/** --------------------------- GETTERS AND SETTERS  ----------------------------------*/
+    /** --------------------------- GETTERS AND SETTERS  ----------------------------------*/
 
 
     public String getNome() {
