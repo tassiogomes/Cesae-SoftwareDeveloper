@@ -6,8 +6,8 @@ import Itens.PocaoHP;
 import java.util.ArrayList;
 
 public class Arqueiro extends Heroi {
-    public Arqueiro(String nome, int vida, int forca, int nivel, int ouro, Arma arma, ArrayList<PocaoHP> pocoes) {
-        super(nome, vida, forca, nivel, ouro, arma, pocoes);
+    public Arqueiro(String nome, int vida, int forca, int nivel, int ouro) {
+        super(nome, vida, forca, nivel, ouro);
     }
 
     /**

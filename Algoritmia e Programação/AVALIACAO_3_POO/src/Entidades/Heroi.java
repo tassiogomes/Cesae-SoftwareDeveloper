@@ -25,15 +25,12 @@ public abstract class Heroi extends Entidade {
      * @param forca
      * @param nivel
      * @param ouro
-     * @param arma
-     * @param poções
      */
-    public Heroi(String nome, int vida, int forca, int nivel, int ouro, Arma arma, ArrayList<PocaoHP> poções) {
+    public Heroi(String nome, int vida, int forca, int nivel, int ouro) {
         super(nome, vida, forca);
         this.nivel = nivel;
         this.ouro = ouro;
-        this.arma = arma;
-        this.pocoes = pocoes;
+        this.pocoes = new ArrayList<PocaoHP>();
     }
 
     /**
