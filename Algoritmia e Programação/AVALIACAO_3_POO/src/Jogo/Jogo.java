@@ -138,21 +138,21 @@ public class Jogo {
                 "Força: " + heroi.getForca() + ", Vida: " + heroi.getVida() + ", Ouro: " + heroi.getOuro() + ".");
 
 
-        // instanciar inimigos
+        // instanciar inimigosm sem o mostrar detalhes, porque tem que ser segredo pro user
         NPC npc1 = new NPC("NPC 1", 100, 10);
-        npc1.mostrarDetalhes();
+        //npc1.mostrarDetalhes();
 
         NPC npc2 = new NPC("NPC 2", 80, 8);
-        npc2.mostrarDetalhes();
+        //npc2.mostrarDetalhes();
 
         NPC npc3 = new NPC("NPC 3", 120, 12);
-        npc3.mostrarDetalhes();
+        //npc3.mostrarDetalhes();
 
         NPC npc4 = new NPC("NPC 4", 150, 15);
-        npc4.mostrarDetalhes();
+        //npc4.mostrarDetalhes();
 
         NPC npc5 = new NPC("NPC 5", 90, 9);
-        npc5.mostrarDetalhes();
+       //npc5.mostrarDetalhes();
 
         // instância do arraylist que tem que ser passado como parâmetro na instância da PocaoHP
         ArrayList<TiposHeroi> tiposHeroi = new ArrayList<>();
@@ -226,6 +226,50 @@ public class Jogo {
             vendedor1.adicionarItem(pocao7);
 
             vendedor1.imprimirInventario();
+
+        /**************************** ponto 11 ********************************/
+
+       /* System.out.println("Bem-vindo ao Labirinto dos Perigos!");
+        System.out.println("Você está na porta do labirinto, onde um vendedor está oferecendo itens à venda.");
+
+        // Exibindo os itens disponíveis para compra
+        System.out.println("Itens disponíveis para compra:");
+        vendedor1.imprimirInventario();
+
+        System.out.println("Deseja comprar algum item? (Digite o número correspondente ou 0 para avançar sem comprar)");
+
+        int opcao = scanner.nextInt();
+        while (opcao != 0) {
+            // Verificando se a opção é válida
+            if (opcao < 1 || opcao > vendedor1.getInventario().size()) {
+                System.out.println("Opção inválida! Por favor, digite novamente:");
+                opcao = scanner.nextInt();
+                continue;
+            }
+
+            // Obtendo o item selecionado
+            ItemHeroi itemSelecionado = vendedor1.getInventario().get(opcao - 1);
+
+
+            // Verificando se o herói pode comprar o item
+            if (!heroi.podeUsarItem(itemSelecionado) || heroi.getOuro() < itemSelecionado.getPreco()) {
+                System.out.println("Você não pode comprar esse item! Escolha outro item ou digite 0 para avançar:");
+                opcao = scanner.nextInt();
+                continue;
+            }
+
+            // Realizando a compra
+            heroi.comprarItem(itemSelecionado);
+            vendedor1.removerItem(itemSelecionado);
+
+            System.out.println("Você comprou o item: " + itemSelecionado.getNome());
+            System.out.println("Seu ouro restante: " + heroi.getOuro());
+
+            System.out.println("Deseja comprar mais algum item? (Digite o número correspondente ou 0 para avançar)");
+            opcao = scanner.nextInt();
+        }
+
+        System.out.println("Você escolheu avançar sem comprar itens. Boa sorte na sua aventura!");*/
 
 
             }

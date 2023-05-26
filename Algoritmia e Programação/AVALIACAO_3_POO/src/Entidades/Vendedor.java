@@ -40,31 +40,45 @@ public class Vendedor {
         }
     }
 
+    public ArrayList<ItemHeroi> getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(ArrayList<ItemHeroi> inventario) {
+        this.inventario = inventario;
+    }
+
     /**
      * Método vender que recebe como parametros um heroi da classe Heroi e um item da classe ItemHeroi
      * @param heroi
-     * @param item
+     * @param index
      */
-    public void vender(Heroi heroi, ItemHeroi item) {
+    public void vender(Heroi heroi, int index) { //this.inventario.getIndex()
         // Verifica se o heroi possui ouro suficiente para comprar o item
-        if (heroi.getOuro() >= item.getPreco()) {
-            // Verifica se o item é uma Arma e atualiza a arma do heroi
-            if (item instanceof Arma) { // verifica se item do tipo é uma instancia de Arma
-                Arma arma = (Arma) item; // casting, trata o item como uma instancia de arma, ja qe foi verificado acima
-                heroi.setArma(arma);    // arma da classe Heroi armazena um item (que ja foi verificado e convertido pro tipo arma)
+        if (index >= 0 && index < inventario.size()) { // verifica se o indice está entre 0 (item 1) e o maior valor de índice do array inventário
+            ItemHeroi item = inventario.get(index);    // escolhe o item que está no arraylist inventário que tem como parametro o indice introduzido(aparece na lista de inventario)
+            if (heroi.getOuro() >= item.getPreco()) {  // validação se o herói possui ouro
+                // Verifica se o item é uma Arma e atualiza a arma do heroi
+                if (item instanceof Arma) { // verifica se item do tipo é uma instancia de Arma
+                    Arma arma = (Arma) item; // casting, trata o item como uma instancia de arma, ja qe foi verificado acima
+                    heroi.setArma(arma);    // arma da classe Heroi armazena um item (que ja foi verificado e convertido pro tipo arma)
+                }
+                // Se não é uma arma é uma poção, então, verifica se o item é uma PocaoHP e adiciona a poção ao heroi
+                else if (item instanceof PocaoHP) { // verifica se item do tipo é uma instancia de PocaoHP
+                    PocaoHP pocao = (PocaoHP) item;
+                    heroi.adicionarPocao(pocao);    // pocao da classe Heroi armazena um item (que ja foi verificado e convertido pro tipo pocao)
+                }
+                heroi.decrementarOuro(item.getPreco()); // Decrementa o ouro do heroi pelo preço do item
+                // Remove o item do inventario do vendedor
+                inventario.remove(item);
+                System.out.println("Compra realizada com sucesso!");
+            } else {
+                System.out.println("O herói não possui ouro suficiente para comprar este item.");
             }
-            // Verifica se o item é uma PocaoHP e adiciona a poção ao heroi
-            else if (item instanceof PocaoHP) { // verifica se item do tipo é uma instancia de PocaoHP
-                PocaoHP pocao = (PocaoHP) item;
-                heroi.adicionarPocao(pocao);
-            }
-            // Decrementa o ouro do heroi pelo preço do item
-            heroi.decrementarOuro(item.getPreco());
-            // Remove o item do inventario do vendedor
-            inventario.remove(item);
-            System.out.println("Compra realizada com sucesso!");
         } else {
-            System.out.println("O herói não possui ouro suficiente para comprar este item.");
+            System.out.println("Item do vendedor não encontrado");
+
+
         }
     }
 }
