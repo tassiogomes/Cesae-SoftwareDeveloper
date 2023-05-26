@@ -23,7 +23,7 @@ public class Arqueiro extends Heroi {
             npc.setVida(npc.getVida() - danoHeroi);
             System.out.println(npc.getVida());
             //npc.subtrairVida(danoHeroi);
-            // Verifica se o herói ainda está vivo
+
             // Verifica se o inimigo ainda está vivo
             if (npc.getVida() <= 0) {
                 System.out.println("O herói venceu!");
