@@ -10,6 +10,28 @@ import java.util.Scanner;
 
 
 public class Jogo {
+
+    /******************* Instanciar os personagens *************************/
+    private static  Cavaleiro criarCavaleiro() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o nome do Cavaleiro:");
+        String nome = scanner.nextLine();
+        return new Cavaleiro(nome, 0, 0, 0, 0);
+    }
+
+    private static Feiticeiro criarFeiticeiro() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o nome do Feiticeiro:");
+        String nome = scanner.nextLine();
+        return new Feiticeiro(nome, 0, 0, 0, 0);
+    }
+
+    private static Arqueiro criarArqueiro() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o nome do Arqueiro:");
+        String nome = scanner.nextLine();
+        return new Arqueiro(nome, 0, 0, 0, 0);
+    }
     public static void main(String[] args) {
         labirinto();
     }
@@ -238,11 +260,7 @@ public class Jogo {
         int opcao = scanner.nextInt()-1;
         vendedor1.vender(heroi, opcao);
 
-
-            // Realizando a compra
-
-
-            }
+    }
 
 
 
@@ -250,29 +268,7 @@ public class Jogo {
 
 
 
-    /******************* Instanciar os personagens *************************/
-    private static  Cavaleiro criarCavaleiro() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite o nome do Cavaleiro:");
-        String nome = scanner.nextLine();
-        return new Cavaleiro(nome, 0, 0, 0, 0);
-    }
 
-    private static Feiticeiro criarFeiticeiro() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite o nome do Feiticeiro:");
-        String nome = scanner.nextLine();
-        return new Feiticeiro(nome, 0, 0, 0, 0);
-    }
-
-    private static Arqueiro criarArqueiro() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite o nome do Arqueiro:");
-        String nome = scanner.nextLine();
-        return new Arqueiro(nome, 0, 0, 0, 0);
-    }
-
-    /********************* Instância 13 itens **********************/
 
 
 }
