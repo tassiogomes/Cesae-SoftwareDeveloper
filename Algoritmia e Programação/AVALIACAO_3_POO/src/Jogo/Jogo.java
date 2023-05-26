@@ -194,15 +194,15 @@ public class Jogo {
             heroiFeiticeiro.add(TiposHeroi.FEITICEIRO);
             // Faça o que precisa com a combinacao7
 
-            Arma arma1 = new Arma("Arma1", 50, todosTiposHeroi,20);
-            Arma arma2 = new Arma("Arma2", 60, heroiCavaleiro,30);
-            Arma arma3 = new Arma("Arma3", 70, heroiArqueiro,40);
-            Arma arma4 = new Arma("Arma4", 80, heroiFeiticeiro,50);;
-            Arma arma5 = new Arma("Flecha Envenenada", 80, todosTiposHeroi, 35);
-            Arma arma6 = new Arma("Varinha Arcana", 90, heroiFeiticeiro, 25);
-            Arma arma7 = new Arma("Espada Lendária", 110, heroiArqueiro, 55);
-            Arma arma8 = new Arma("Arco Mágico", 100, heroiArqueiro, 45);
-            Arma arma9 = new Arma("Cajado das Sombras", 85, heroiFeiticeiro, 35);
+            Arma arma1 = new Arma("Arma1", 5, todosTiposHeroi,20);
+            Arma arma2 = new Arma("Arma2", 2, heroiCavaleiro,30);
+            Arma arma3 = new Arma("Arma3", 10, heroiArqueiro,40);
+            Arma arma4 = new Arma("Arma4", 2, heroiFeiticeiro,50);;
+            Arma arma5 = new Arma("Flecha Envenenada", 5, todosTiposHeroi, 35);
+            Arma arma6 = new Arma("Varinha Arcana", 6, heroiFeiticeiro, 25);
+            Arma arma7 = new Arma("Espada Lendária", 1, heroiArqueiro, 55);
+            Arma arma8 = new Arma("Arco Mágico", 2, heroiArqueiro, 45);
+            Arma arma9 = new Arma("Cajado das Sombras", 5, heroiFeiticeiro, 35);
 
 
             // instancia do vendedor que recebe arraylist de itens já instanciados (inventario)
@@ -225,11 +225,10 @@ public class Jogo {
             vendedor1.adicionarItem(pocao6);
             vendedor1.adicionarItem(pocao7);
 
-            vendedor1.imprimirInventario();
 
         /**************************** ponto 11 ********************************/
 
-       /* System.out.println("Bem-vindo ao Labirinto dos Perigos!");
+        System.out.println("Bem-vindo ao Labirinto dos Perigos!");
         System.out.println("Você está na porta do labirinto, onde um vendedor está oferecendo itens à venda.");
 
         // Exibindo os itens disponíveis para compra
@@ -238,38 +237,11 @@ public class Jogo {
 
         System.out.println("Deseja comprar algum item? (Digite o número correspondente ou 0 para avançar sem comprar)");
 
-        int opcao = scanner.nextInt();
-        while (opcao != 0) {
-            // Verificando se a opção é válida
-            if (opcao < 1 || opcao > vendedor1.getInventario().size()) {
-                System.out.println("Opção inválida! Por favor, digite novamente:");
-                opcao = scanner.nextInt();
-                continue;
-            }
+        int opcao = scanner.nextInt()-1;
+        vendedor1.vender(heroi, opcao);
 
-            // Obtendo o item selecionado
-            ItemHeroi itemSelecionado = vendedor1.getInventario().get(opcao - 1);
-
-
-            // Verificando se o herói pode comprar o item
-            if (!heroi.podeUsarItem(itemSelecionado) || heroi.getOuro() < itemSelecionado.getPreco()) {
-                System.out.println("Você não pode comprar esse item! Escolha outro item ou digite 0 para avançar:");
-                opcao = scanner.nextInt();
-                continue;
-            }
 
             // Realizando a compra
-            heroi.comprarItem(itemSelecionado);
-            vendedor1.removerItem(itemSelecionado);
-
-            System.out.println("Você comprou o item: " + itemSelecionado.getNome());
-            System.out.println("Seu ouro restante: " + heroi.getOuro());
-
-            System.out.println("Deseja comprar mais algum item? (Digite o número correspondente ou 0 para avançar)");
-            opcao = scanner.nextInt();
-        }
-
-        System.out.println("Você escolheu avançar sem comprar itens. Boa sorte na sua aventura!");*/
 
 
             }
