@@ -51,13 +51,12 @@ public class Feiticeiro extends Heroi {
      */
     @Override
     public void mostrarDetalhes() {
-        System.out.println("Detalhes do Feiticeiro:");
+        System.out.println("Detalhes do Cavaleiro:");
         System.out.println("Nome: " + getNome());
         System.out.println("Vida: " + getVida());
         System.out.println("Força: " + getForca());
         System.out.println("Nível: " + getNivel());
         System.out.println("Ouro: " + getOuro());
-        System.out.println("Arma: " + getArma().getNome());
-        System.out.println("Poções: " + getPocoes().size());
+
     }
 }

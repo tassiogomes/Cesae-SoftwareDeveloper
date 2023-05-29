@@ -85,12 +85,10 @@ public class Vendedor {
                             break;
                         }
                     }
-
                     if (permitido) {
                         if (heroi.getOuro() >= item.getPreco()) {
                             if (item instanceof Arma) {
                                 Arma arma = (Arma) item;
-                                heroi.adicionarArma(arma);
                                 heroi.setArma(arma);
                             } else if (item instanceof PocaoHP) {
                                 PocaoHP pocao = (PocaoHP) item;
@@ -99,18 +97,19 @@ public class Vendedor {
 
                             heroi.decrementarOuro(item.getPreco());
                             itensComprados.add(item);
+                            inventario.remove(item);
                             System.out.println("Compra realizada com sucesso!");
                             System.out.println("Você comprou o item: " + item.getNome());
                             System.out.println("O valor do item é: " + item.getPreco());
                             System.out.println("Seu ouro restante: " + heroi.getOuro());
                             System.out.println("--------------------");
+                            imprimirInventario();
                         } else {
                             System.out.println("O herói não possui ouro suficiente para comprar este item.");
                         }
                     } else {
                         System.out.println("Item do vendedor não encontrado");
                     }
-
                     heroi.mostrarDetalhes();
                 } else {
                     System.out.println("Esse item já foi comprado. Escolha outro item.");
@@ -120,8 +119,8 @@ public class Vendedor {
             }
         }
 
-        // Remover os itens comprados do inventário
-        inventario.removeAll(itensComprados);
+
+
     }
 
 
