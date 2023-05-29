@@ -1,4 +1,5 @@
 package Jogo;
+
 import Entidades.*;
 import Itens.Arma;
 import Itens.ItemHeroi;
@@ -164,9 +165,7 @@ public class Jogo {
                     "Força: " + heroi.getForca() + ", Vida: " + heroi.getVida() + ", Ouro: " + heroi.getOuro() + ".");
 
 
-            venceu = labirinto(0, heroi);
-
-            if (venceu == true) {
+            if (labirinto(0, heroi)) {
                 System.out.println("yei");
                 heroi.mostrarDetalhes();
             } else {
@@ -183,8 +182,7 @@ public class Jogo {
 
     public static boolean labirinto(int op, Heroi heroi) {
         Scanner scanner = new Scanner(System.in);
-
-
+boolean p=true;
         // instanciar inimigosm sem o mostrar detalhes, porque tem que ser segredo pro user
         NPC npc1 = new NPC("NPC 1", 100, 10);
         //npc1.mostrarDetalhes();
@@ -202,14 +200,12 @@ public class Jogo {
         //npc5.mostrarDetalhes();
 
         /**
-        // instância do arraylist que tem que ser passado como parâmetro na instância da PocaoHP
-        ArrayList<TiposHeroi> tiposHeroi = new ArrayList<>();
-        tiposHeroi.add(TiposHeroi.CAVALEIRO);
-        tiposHeroi.add(TiposHeroi.ARQUEIRO);
-        tiposHeroi.add(TiposHeroi.FEITICEIRO);*/ // apagar
+         // instância do arraylist que tem que ser passado como parâmetro na instância da PocaoHP
+         ArrayList<TiposHeroi> tiposHeroi = new ArrayList<>();
+         tiposHeroi.add(TiposHeroi.CAVALEIRO);
+         tiposHeroi.add(TiposHeroi.ARQUEIRO);
+         tiposHeroi.add(TiposHeroi.FEITICEIRO);*/ // apagar
         // se nao apagar trocar as instancias da poção para cá, entre esse codigo comentado e os proximos arrayslist
-
-
 
 
         // instância de varios arraylist que tem que ser passado como parâmetro na instância de Arma
@@ -237,15 +233,14 @@ public class Jogo {
         // Faça o que precisa com a combinacao7
 
 
-
         // instância das PocaoHP
         PocaoHP pocao1 = new PocaoHP("PocaoHP1", 1, todosTiposHeroi, 60);
         PocaoHP pocao2 = new PocaoHP("PocaoHP2", 2, todosTiposHeroi, 85);
         PocaoHP pocao3 = new PocaoHP("PocaoHP3", 3, todosTiposHeroi, 90);
         PocaoHP pocao4 = new PocaoHP("PocaoHP4", 4, todosTiposHeroi, 135);
-        PocaoHP pocao5 = new PocaoHP("Poção de Energia", 3, todosTiposHeroi, 0);
-        PocaoHP pocao6 = new PocaoHP("Poção de Cura Avançada", 7, todosTiposHeroi, 0);
-        PocaoHP pocao7 = new PocaoHP("Poção de Vida Extra", 5, todosTiposHeroi, 0);
+        PocaoHP pocao5 = new PocaoHP("Poção de Energia", 3, todosTiposHeroi, 20);
+        PocaoHP pocao6 = new PocaoHP("Poção de Cura Avançada", 7, todosTiposHeroi, 100);
+        PocaoHP pocao7 = new PocaoHP("Poção de Vida Extra", 5, todosTiposHeroi, 200);
 
         Arma arma1 = new Arma("Arma1", 5, todosTiposHeroi, 20);
         Arma arma2 = new Arma("Arma2", 2, heroiCavaleiro, 30);
@@ -279,14 +274,11 @@ public class Jogo {
         vendedor1.adicionarItem(pocao7);
 
 
-
-
         /**************************** ponto 11 ********************************/
 
         //int opcao =
-        switch (op)
-        {
-            case 0: {
+        switch (op) {
+            case 0:
                 System.out.println("\nÀs portas de Eldoria e antes de iniciares a tua jornada, tens um vendedor onde podes comrar tudo o que precisas para enfrentar as maiores adversidades.\n");
 
                 // Exibindo os itens disponíveis para compra
@@ -303,26 +295,32 @@ public class Jogo {
                 } while (op < 0 && op > 2);
 
                 labirinto(op, heroi);
-            }
+
             break;
 
-            case 1: {
+            case 1:
                 System.out.println("\nCorajoso! É preciso audácia para enfrentar o Vale dos Mortos.");
                 System.out.println("\nTerá de enfrendar NPC, o deus das trevas. Boa sorte!");
 
-                heroi.atacar(npc1);
+                if (heroi.atacar(npc1) != heroi) {
+                    System.out.println("estou aqui");
+                    return false;
+                }
+
+                heroi.usarPocao();
+
 
                 System.out.println("\nEscolha uma opção: ");
                 System.out.println("5 - Cidade");
                 System.out.println("6 - Floresta");
 
-                do{
+                do {
                     op = scanner.nextInt();
-                }while (op < 5 && op > 6);
+                } while (op < 5 || op > 6);
 
-                labirinto(op, heroi);
 
-                break;}
+                break;
+
 
             case 2:
                 System.out.println("Casa 2");
@@ -334,11 +332,9 @@ public class Jogo {
             case 3:
 
 
-
                 break;
 
             case 4:
-
 
 
                 break;
@@ -347,21 +343,18 @@ public class Jogo {
                 System.out.println("casa5");
 
 
-
                 break;
 
-            case 6: System.out.println("casa6");
-
+            case 6:
+                System.out.println("casa6");
 
 
                 break;
             case 7:
 
 
-
                 break;
             case 8:
-
 
 
                 break;
@@ -372,15 +365,12 @@ public class Jogo {
             case 10:
 
 
-
                 break;
             case 11:
 
 
-
                 break;
             case 12:
-
 
 
                 break;
@@ -388,6 +378,7 @@ public class Jogo {
 
                 break;
         }
+
         return true;
     }
 

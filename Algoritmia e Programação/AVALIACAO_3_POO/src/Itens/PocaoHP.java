@@ -35,6 +35,7 @@ public class PocaoHP extends ItemHeroi {
     }
 
     public void setCurar(int curar) {
+
         this.curar = curar;
     }
 }

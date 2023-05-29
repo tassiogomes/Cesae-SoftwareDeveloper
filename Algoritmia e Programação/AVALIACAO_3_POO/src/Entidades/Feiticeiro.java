@@ -12,12 +12,13 @@ public class Feiticeiro extends Heroi {
 
     /**
      * Método subscrito da classe NPC
+     *
      * @param npc
      */
     @Override
-    public void atacar(NPC npc) {
+    public Entidade atacar(NPC npc) {
 
-        while (this.getVida()>=0 && npc.getVida()>=0) {
+        while (this.getVida() >= 0 && npc.getVida() >= 0) {
 
             // O herói ataca
             int danoHeroi = this.getForca() + this.getArma().getAtaque();
@@ -32,19 +33,24 @@ public class Feiticeiro extends Heroi {
                 this.incrementarVida(10);
                 this.incrementarForca(1);
                 this.incrementarOuro(10);
+
             } else {
                 // O inimigo ataca)
                 int danoInimigo = (int) (npc.getForca());
                 this.subtrairVida(danoInimigo); // que é a quantidade passada no parametro da funcao na classe Heroi
                 System.out.println(this.getVida());
 
-            if (this.getVida() <= 0) {
-                System.out.println("O herói foi derrotado.");
-                    }
-                }
-            }
 
+            }
         }
+
+        if (this.getVida() <= 0) {
+            System.out.println("O herói foi derrotado.");
+            return npc;
+        } else {
+            return this;
+        }
+    }
 
     /**
      * Método vindo da classe Entidade, obrigatório a todas.
