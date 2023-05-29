@@ -12,6 +12,7 @@ public abstract class Heroi extends Entidade {
     private int ouro;
     private Arma arma;
     private ArrayList<PocaoHP> pocoes;
+    private ArrayList<Arma> inventario;
 
 
 
@@ -31,6 +32,7 @@ public abstract class Heroi extends Entidade {
         this.nivel = nivel;
         this.ouro = ouro;
         this.pocoes = new ArrayList<PocaoHP>();
+        this.inventario = new ArrayList<>();
     }
 
     /**
@@ -170,6 +172,17 @@ public abstract class Heroi extends Entidade {
     public void setArma(Arma arma) {
         this.arma = arma;
     }
+    public ArrayList<Arma> getInventario() {
+        return inventario;
+    }
+    public void adicionarArma(Arma arma) {
+        inventario.add(arma);
+    }
+
+    public void removerArma(Arma arma) {
+        inventario.remove(arma);
+    }
+
 
     public ArrayList<PocaoHP> getPocoes() {
         return pocoes;

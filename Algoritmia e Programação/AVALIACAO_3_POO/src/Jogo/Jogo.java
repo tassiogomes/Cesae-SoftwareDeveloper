@@ -257,6 +257,7 @@ public class Jogo {
 
         System.out.println("Bem vindo à loja, " + heroi.getNome() + " " +  heroi.getClass().getSimpleName() + "!");
         vendedor1.vender(heroi);
+        heroi.mostrarDetalhes();
 
     }
 

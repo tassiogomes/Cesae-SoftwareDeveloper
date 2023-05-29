@@ -1,6 +1,7 @@
 package Entidades;
 
 import Itens.Arma;
+import Itens.ItemHeroi;
 import Itens.PocaoHP;
 
 import java.util.ArrayList;
@@ -51,8 +52,32 @@ public class Cavaleiro extends Heroi {
     /**
      * Método vindo da classe Entidade, obrigatório a todas.
      */
+
     @Override
     public void mostrarDetalhes() {
+        System.out.println("Detalhes do Cavaleiro:");
+        System.out.println("Nome: " + getNome());
+        System.out.println("Vida: " + getVida());
+        System.out.println("Força: " + getForca());
+        System.out.println("Nível: " + getNivel());
+        System.out.println("Ouro: " + getOuro());
 
+        System.out.println("Armas:");
+        boolean possuiArmas = false;
+        for (Arma arma : getInventario()) {
+            System.out.println("- " + arma.getNome());
+            possuiArmas = true;
+        }
+        if (!possuiArmas) {
+            System.out.println("Nenhuma arma comprada.");
+        }
+
+        System.out.println("Poções:");
+        for (PocaoHP pocao : getPocoes()) {
+            System.out.println("- " + pocao.getNome());
+        }
     }
+
+
+
 }

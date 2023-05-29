@@ -90,6 +90,7 @@ public class Vendedor {
                         if (heroi.getOuro() >= item.getPreco()) {
                             if (item instanceof Arma) {
                                 Arma arma = (Arma) item;
+                                heroi.adicionarArma(arma);
                                 heroi.setArma(arma);
                             } else if (item instanceof PocaoHP) {
                                 PocaoHP pocao = (PocaoHP) item;
@@ -100,6 +101,7 @@ public class Vendedor {
                             itensComprados.add(item);
                             System.out.println("Compra realizada com sucesso!");
                             System.out.println("Você comprou o item: " + item.getNome());
+                            System.out.println("O valor do item é: " + item.getPreco());
                             System.out.println("Seu ouro restante: " + heroi.getOuro());
                             System.out.println("--------------------");
                         } else {
