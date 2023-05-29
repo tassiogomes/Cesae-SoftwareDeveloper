@@ -164,8 +164,8 @@ public class Jogo {
                     " vai iniciar esta jornada épica na dificuldade " + (dificuldade == 1 ? "Fácil" : "Difícil") + ". \nDetalhes do herói: " +
                     "Força: " + heroi.getForca() + ", Vida: " + heroi.getVida() + ", Ouro: " + heroi.getOuro() + ".");
 
-
-            if (labirinto(0, heroi)) {
+            venceu = labirinto(0, heroi);
+            if (venceu) {
                 System.out.println("yei");
                 heroi.mostrarDetalhes();
             } else {
@@ -182,7 +182,7 @@ public class Jogo {
 
     public static boolean labirinto(int op, Heroi heroi) {
         Scanner scanner = new Scanner(System.in);
-boolean p=true;
+        boolean p = false;
         // instanciar inimigosm sem o mostrar detalhes, porque tem que ser segredo pro user
         NPC npc1 = new NPC("NPC 1", 100, 10);
         //npc1.mostrarDetalhes();
@@ -296,15 +296,14 @@ boolean p=true;
 
                 labirinto(op, heroi);
 
-            break;
+                break;
 
             case 1:
                 System.out.println("\nCorajoso! É preciso audácia para enfrentar o Vale dos Mortos.");
                 System.out.println("\nTerá de enfrendar NPC, o deus das trevas. Boa sorte!");
-
-                if (heroi.atacar(npc1) != heroi) {
-                    System.out.println("estou aqui");
-                    return false;
+                p = (heroi.atacar(npc1) == heroi);
+                if (!p) {
+                    break;
                 }
 
                 heroi.usarPocao();
@@ -379,7 +378,11 @@ boolean p=true;
                 break;
         }
 
-        return true;
+        if (!p) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
 
