@@ -181,13 +181,13 @@ public class Jogo {
         tiposHeroi.add(TiposHeroi.FEITICEIRO);
 
         // instância das PocaoHP
-        PocaoHP pocao1 = new PocaoHP("PocaoHP1",10, tiposHeroi, 60);
-        PocaoHP pocao2 = new PocaoHP("PocaoHP2",20, tiposHeroi, 85);
-        PocaoHP pocao3 = new PocaoHP("PocaoHP3",30, tiposHeroi, 90);
-        PocaoHP pocao4 = new PocaoHP("PocaoHP4",40, tiposHeroi, 135);
-        PocaoHP pocao5 = new PocaoHP("Poção de Energia", 30, tiposHeroi, 0);
-        PocaoHP pocao6 = new PocaoHP("Poção de Cura Avançada", 75, tiposHeroi, 0);
-        PocaoHP pocao7 = new PocaoHP("Poção de Vida Extra", 50, tiposHeroi, 0);
+        PocaoHP pocao1 = new PocaoHP("PocaoHP1",1, tiposHeroi, 60);
+        PocaoHP pocao2 = new PocaoHP("PocaoHP2",2, tiposHeroi, 85);
+        PocaoHP pocao3 = new PocaoHP("PocaoHP3",3, tiposHeroi, 90);
+        PocaoHP pocao4 = new PocaoHP("PocaoHP4",4, tiposHeroi, 135);
+        PocaoHP pocao5 = new PocaoHP("Poção de Energia", 3, tiposHeroi, 0);
+        PocaoHP pocao6 = new PocaoHP("Poção de Cura Avançada", 7, tiposHeroi, 0);
+        PocaoHP pocao7 = new PocaoHP("Poção de Vida Extra", 5, tiposHeroi, 0);
 
 
         // instância de varios arraylist que tem que ser passado como parâmetro na instância de Arma
@@ -255,10 +255,8 @@ public class Jogo {
         System.out.println("Itens disponíveis para compra:");
         vendedor1.imprimirInventario();
 
-        System.out.println("Deseja comprar algum item? (Digite o número correspondente ou 0 para avançar sem comprar)");
-
-        int opcao = scanner.nextInt()-1;
-        vendedor1.vender(heroi, opcao);
+        System.out.println("Bem vindo à loja, " + heroi.getNome() + " " +  heroi.getClass().getSimpleName() + "!");
+        vendedor1.vender(heroi);
 
     }
 
