@@ -53,7 +53,7 @@ public abstract class Heroi extends Entidade {
      * @param quantidade
      */
     public void decrementarOuro(int quantidade) {
-        ouro -= quantidade;
+        ouro -= quantidade; // ouro = ouro - quantidade
     }
 
     /**
@@ -93,8 +93,6 @@ public abstract class Heroi extends Entidade {
             System.out.println("Sem Poção!");
         }
     }
-
-
 
     /**
      *  Método que busca a ppocao por nome

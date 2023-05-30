@@ -13,6 +13,10 @@ import java.util.Scanner;
 public class Jogo {
 
     /******************* Instanciar os personagens *************************/
+    /**
+     * Método para instanciar um objeto Cavaleiro
+     * @return
+     */
     private static Cavaleiro criarCavaleiro() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o nome do Cavaleiro:");
@@ -20,6 +24,10 @@ public class Jogo {
         return new Cavaleiro(nome, 0, 0, 0, 0);
     }
 
+    /**
+     * Método para instanciar um objeto Feiticeiro
+     * @return
+     */
     private static Feiticeiro criarFeiticeiro() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o nome do Feiticeiro:");
@@ -27,6 +35,10 @@ public class Jogo {
         return new Feiticeiro(nome, 0, 0, 0, 0);
     }
 
+    /**
+     * Método para instanciar um objeto Arqueiro
+     * @return
+     */
     private static Arqueiro criarArqueiro() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o nome do Arqueiro:");
@@ -179,6 +191,10 @@ public class Jogo {
         } while (resposta.equals("S"));
     }
 
+    /**
+     * Método para reinício de jogo ou terminar o jogo.
+     * @param message
+     */
     private static void reset(String message)
     {
         if(message != null) {
@@ -200,6 +216,12 @@ public class Jogo {
     }
 
 
+    /**
+     * Início do labirinto
+     * @param op
+     * @param heroi
+     * @return
+     */
     public static boolean labirinto(int op, Heroi heroi) {
         Scanner scanner = new Scanner(System.in);
         boolean p = false;
@@ -315,7 +337,7 @@ public class Jogo {
         //int opcao =
         switch (op) {
             case 0:
-                System.out.println("\nNos limites da cidade-fortaleza de Avaloria, em um mundo futurista repleto de tecnologia avançada, nos deparamos com um vendedor ambulante em sua nave espacial, oferecendo os mais modernos equipamentos para enfrentarmos os desafios que nos aguardam.\n");
+                System.out.println("\nNos limites da cidade-fortaleza de Avaloria, \nem um mundo futurista repleto de tecnologia avançada, nos deparamos com um vendedor ambulante em sua nave espacial, \noferecendo os mais modernos equipamentos para enfrentarmos os desafios que nos aguardam.\n");
 
                 //Mostrar itens disponíveis para compra
                 vendedor1.imprimirInventario();

@@ -12,7 +12,6 @@ public class Feiticeiro extends Heroi {
 
     /**
      * Método subscrito da classe NPC
-     *
      * @param npc
      */
     @Override

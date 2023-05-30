@@ -41,6 +41,7 @@ public abstract class Entidade {
     }
 
     public int getVida() {
+
         return vida;
     }
 

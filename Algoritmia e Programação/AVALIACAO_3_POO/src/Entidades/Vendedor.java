@@ -21,8 +21,6 @@ public class Vendedor {
         this.inventario = new ArrayList<>();
     }
 
-
-
     /**
      * Método para adicionar item ao atributo inventario
      * @param item
@@ -42,7 +40,7 @@ public class Vendedor {
             System.out.println("Item " + contador + ":");
             item.mostrarDetalhes();
             System.out.println("--------------------");
-            contador++;
+            contador++; // contador = contador + 1
         }
     }
 
@@ -115,15 +113,10 @@ public class Vendedor {
                     System.out.println("Esse item já foi comprado. Escolha outro item.");
                 }
             } else {
-                System.out.println("Índice inválido. Por favor, escolha um índice válido.");
+                System.out.println("Indice inválido. Por favor, escolha um índice válido.");
             }
         }
-
-
-
     }
-
-
 }
 
 

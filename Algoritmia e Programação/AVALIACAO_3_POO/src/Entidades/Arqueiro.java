@@ -12,7 +12,6 @@ public class Arqueiro extends Heroi {
 
     /**
      * Método subscrito da classe NPC
-     *
      * @param npc
      */
     @Override

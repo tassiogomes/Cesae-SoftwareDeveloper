@@ -54,6 +54,10 @@ public abstract class ItemHeroi{
         return tiposHeroi;
     }
 
+    /**
+     * Método que insere tipos de herói no array
+     * @param tiposHeroi
+     */
     public void setTiposHeroi(ArrayList<TiposHeroi> tiposHeroi) {
         this.tiposHeroi = tiposHeroi;
     }
