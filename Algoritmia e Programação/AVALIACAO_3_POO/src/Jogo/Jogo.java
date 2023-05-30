@@ -179,25 +179,61 @@ public class Jogo {
         } while (resposta.equals("S"));
     }
 
+    private static void reset(String message)
+    {
+        if(message != null) {
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("\n" + message + "\n");
+
+            int op;
+            do{
+                System.out.println("\n1 - Continuar a jogar!");
+                System.out.println("\n2 - Sair");
+                op = scanner.nextInt();
+            }while (op < 1 || op > 2);
+
+            if(op == 1) {
+                main(null);
+            }
+        }
+    }
+
 
     public static boolean labirinto(int op, Heroi heroi) {
         Scanner scanner = new Scanner(System.in);
         boolean p = false;
         // instanciar inimigosm sem o mostrar detalhes, porque tem que ser segredo pro user
-        NPC npc1 = new NPC("NPC 1", 100, 10);
+        NPC npc1 = new NPC("Cybertron", 100, 10);
         //npc1.mostrarDetalhes();
 
-        NPC npc2 = new NPC("NPC 2", 80, 8);
+        NPC npc2 = new NPC("Xenotech", 80, 8);
         //npc2.mostrarDetalhes();
 
-        NPC npc3 = new NPC("NPC 3", 120, 12);
+        NPC npc3 = new NPC("Nexus Prime", 120, 12);
         //npc3.mostrarDetalhes();
 
-        NPC npc4 = new NPC("NPC 4", 150, 15);
+        NPC npc4 = new NPC("Reaper-9", 150, 15);
         //npc4.mostrarDetalhes();
 
-        NPC npc5 = new NPC("NPC 5", 90, 9);
+        NPC npc5 = new NPC("Shadowbyte", 90, 9);
         //npc5.mostrarDetalhes();
+        NPC npc6 = new NPC("Nova Cyborg", 110, 11);
+        //npc6.mostrarDetalhes();
+
+        NPC npc7 = new NPC("Venomatrix", 95, 9);
+        //npc7.mostrarDetalhes();
+
+        NPC npc8 = new NPC("Quantum Guardian", 130, 13);
+        //npc8.mostrarDetalhes();
+
+        NPC npc9 = new NPC("Spectron", 85, 8);
+        //npc9.mostrarDetalhes();
+
+        NPC npc10 = new NPC("Neurobot", 120, 12);
+        //npc10.mostrarDetalhes();
+
+
 
         /**
          // instância do arraylist que tem que ser passado como parâmetro na instância da PocaoHP
@@ -279,113 +315,237 @@ public class Jogo {
         //int opcao =
         switch (op) {
             case 0:
-                System.out.println("\nÀs portas de Eldoria e antes de iniciares a tua jornada, tens um vendedor onde podes comrar tudo o que precisas para enfrentar as maiores adversidades.\n");
+                System.out.println("\nNos limites da cidade-fortaleza de Avaloria, em um mundo futurista repleto de tecnologia avançada, nos deparamos com um vendedor ambulante em sua nave espacial, oferecendo os mais modernos equipamentos para enfrentarmos os desafios que nos aguardam.\n");
 
-                // Exibindo os itens disponíveis para compra
+                //Mostrar itens disponíveis para compra
                 vendedor1.imprimirInventario();
                 vendedor1.vender(heroi);
 
                 do {
-                    System.out.println("Inicio da jornada tem 2 opções");
-                    System.out.println("1 - Vale dos mortos");
-                    System.out.println("2 - Montanha");
+                    System.out.println("Chegou o momento de iniciarmos nossa jornada futurista e temos duas opções:");
+                    System.out.println("1 - Explorar a Cidade Subterrânea de Neon");
+                    System.out.println("2 - Conquistar a Estação Espacial Abandonada");
 
                     op = scanner.nextInt();
 
-                } while (op < 0 && op > 2);
+                } while (op != 1 && op != 2);
 
                 labirinto(op, heroi);
 
                 break;
 
             case 1:
-                System.out.println("\nCorajoso! É preciso audácia para enfrentar o Vale dos Mortos.");
-                System.out.println("\nTerá de enfrendar NPC, o deus das trevas. Boa sorte!");
+                System.out.println("\nCorajoso! É preciso ousadia para explorar a Cidade Subterrânea de Neon.");
+                System.out.println("\nAdentrando as entranhas da cidade, você se depara com um mundo de luzes brilhantes e tecnologia avançada.");
+                System.out.println("\nA cada esquina, novas maravilhas e perigos aguardam. Esteja preparado!");
+                System.out.println("\nPrepare-se para enfrentar o temível Cybertron!");
+
                 p = (heroi.atacar(npc1) == heroi);
-                if (!p) {
-                    break;
-                }
+                if (p == true) {
 
-                heroi.usarPocao();
+                    heroi.usarPocao();
+                    heroi.mostrarDetalhes();
 
+                    System.out.println("\nEscolha uma opção: ");
+                    System.out.println("2 - Estação Espacial Abandonada");
+                    System.out.println("3 - Megacidade Flutuante");
 
-                System.out.println("\nEscolha uma opção: ");
-                System.out.println("5 - Cidade");
-                System.out.println("6 - Floresta");
+                    do {
+                        op = scanner.nextInt();
+                    } while (op != 2 && op != 3);
 
-                do {
-                    op = scanner.nextInt();
-                } while (op < 5 || op > 6);
-
+                    labirinto(op, heroi);
+                } else reset("Game Over!!!");
 
                 break;
 
-
             case 2:
-                System.out.println("Casa 2");
-                //MONTANHA
+                System.out.println("\nDeterminado, você parte em direção à Estação Espacial Abandonada.");
+                System.out.println("\nA escuridão e o silêncio prevalecem neste local misterioso, onde segredos do universo podem ser revelados.");
+                System.out.println("\nPrepare-se para enfrentar o temível Xenotech!");
 
+                p = (heroi.atacar(npc2) == heroi);
+                if (p == true) {
+                    heroi.usarPocao();
+                    heroi.mostrarDetalhes();
+
+                    labirinto(3, heroi);
+                } else reset("Game Over!!!");
 
                 break;
 
             case 3:
+                System.out.println("\nSempre avançando!");
+                System.out.println("Vamos entrar na Megacidade Flutuante!");
 
+                System.out.println("\nVENDEDOR: 'Olá, caro viajante!'");
+                System.out.println("Interessado em alguns dos meus itens?\n");
+                System.out.println("Detalhes do vendedor:");
+
+                vendedor1.imprimirInventario();
+
+                System.out.println("Insira o número correspondente ou 0 para avançar sem comprar)");
+
+                vendedor1.vender(heroi);
+
+                labirinto(4, heroi);
 
                 break;
 
             case 4:
 
+                System.out.println("\nChegamos a um caminho cheio de possibilidades:");
+                System.out.println("Você chegou a uma nova cidade!");
+                System.out.println("Bem-vindo(a) à cidade de Lumina!");
+                System.out.println("Esta é uma cidade repleta de magia e mistérios.");
+                System.out.println("Explore-a e descubra suas maravilhas!");
+                System.out.println("Ah, só um aviso: recentemente, temos enfrentado problemas com um monstro conhecido como Delta-7.");
 
-                break;
+                p = (heroi.atacar(npc3) == heroi);
+                if (p == true) {
+                    heroi.usarPocao();
+                    heroi.mostrarDetalhes();
+                    System.out.println("Por onde vamos seguir?");
+                    System.out.println("5 - Rota da Floresta Lunar");
+                    System.out.println("6 - Caminho do Deserto de Plasma");
+
+                    do {
+                        op = scanner.nextInt();
+                    } while (op != 5 && op != 6);
+
+                    labirinto(op, heroi);
+                    break;
+                }
 
             case 5:
-                System.out.println("casa5");
+                System.out.println("\nVocê decidiu seguir a Rota da Floresta Lunar.");
+                System.out.println("\nAdentrando a floresta, você se depara com uma paisagem exuberante, iluminada por plantas bioluminescentes e criaturas misteriosas.");
+                System.out.println("\nPrepare-se para enfrentar o temível Reaper-9!");
 
 
+                p = (heroi.atacar(npc4) == heroi);
+                if (p == true) {
+                    heroi.usarPocao();
+                    heroi.mostrarDetalhes();
+                    System.out.println("Por onde vamos seguir?");
+                    System.out.println("9 - Nexus Quântico");
+                    System.out.println("11 - Metrópole Aeroportuária de NeoTokyo");
+
+                    do {
+                        op = scanner.nextInt();
+                    } while (op != 9 && op != 11);
+
+                    labirinto(op, heroi);
+
+                } else reset("Game Over!!!");
                 break;
 
             case 6:
-                System.out.println("casa6");
+                System.out.println("\nPrepare-se para adentrar no Caminho do Deserto de Plasma, uma região árida e perigosa.");
+                System.out.println("Neste deserto futurista, correntes de plasma dançam pelo ar, criando um cenário deslumbrante e mortal.");
+                System.out.println("Esteja pronto para enfrentar os desafios e mistérios que aguardam!");
+                System.out.println("\nPrepare-se para enfrentar o poderoso Shadowbyte!");
 
 
+                p = (heroi.atacar(npc5) == heroi);
+                if (p == true) {
+                    heroi.usarPocao();
+                    heroi.mostrarDetalhes();
+                    System.out.println("Por onde vamos seguir?");
+                    System.out.println("7 - Ruínas Cibernéticas");
+                    System.out.println("8 - Metrópole Holográfica");
+
+                    do {
+                        op = scanner.nextInt();
+                    } while (op != 7 && op != 8);
+
+                    labirinto(op, heroi);
+
+                } else reset("Game Over!!!");
                 break;
+
             case 7:
+                System.out.println("\nBem-vindo às Ruínas Cibernéticas, um lugar repleto de fragmentos de antigas tecnologias.");
+                System.out.println("Nas profundezas destas ruínas, segredos do passado tecnológico aguardam para serem descobertos.");
+                System.out.println("Explore com cuidado e esteja preparado para desafios cibernéticos!");
+                System.out.println("\nPrepare-se para enfrentar o temível Nexus Prime!");
 
 
+                p = (heroi.atacar(npc6) == heroi);
+                if (p == true) {
+                    heroi.usarPocao();
+                    heroi.mostrarDetalhes();
+                    System.out.println("Parabéns, vai avançar para Cidade Futurista ");
+                    labirinto(10, heroi);
+
+                } else reset("Game Over!!!");
                 break;
+
+
             case 8:
+                System.out.println("\nBem-vindo à Metrópole Holográfica, uma cidade do futuro onde realidade e hologramas se misturam.");
+                System.out.println("Nas ruas movimentadas desta metrópole, você encontrará arranha-céus brilhantes e tecnologias avançadas.");
+                System.out.println("Descubra os segredos ocultos e desvende a complexidade desta metrópole holográfica!");
+                System.out.println("\nPrepare-se para enfrentar o temível Alpha-X!");
 
 
+                p = (heroi.atacar(npc6) == heroi);
+                if (p == true) {
+                    heroi.usarPocao();
+                    heroi.mostrarDetalhes();
+                    System.out.println("Parabéns, vai avançar para Cidade Futurista ");
+                    labirinto(10, heroi);
+
+                } else reset("Game Over!!!");
                 break;
+
+
             case 9:
+                System.out.println("\nVocê chegou ao Nexus Quântico, um ponto de convergência entre realidades paralelas.");
+                System.out.println("Neste local, as leis da física se curvam e a tecnologia alcança novos limites.");
+                System.out.println("Prepare-se para enfrentar a entidade cósmica conhecida como Chronos!");
+                System.out.println("\nPrepare-se para enfrentar o temível Delta-7!");
 
+                p = (heroi.atacar(npc8) == heroi);
+                if (p == true) {
+                    heroi.usarPocao();
+                    heroi.mostrarDetalhes();
+                    System.out.println("Parabéns, vai avançar para Cidade Futurista ");
+                    labirinto(11, heroi);
 
+                } else reset("Game Over!!!");
                 break;
+
             case 10:
+                System.out.println("\nBem-vindo à Cidade Futurista, um marco da tecnologia e inovação.");
+                System.out.println("Esta cidade é um exemplo vivo de como a humanidade avançou no campo da ciência e da engenharia.");
+                System.out.println("Prédios altos e reluzentes, veículos voadores e robôs inteligentes são comuns nesta metrópole do futuro.");
+                System.out.println("\nPrepare-se para enfrentar o temível Omega Prime!");
 
+                p = (heroi.atacar(npc10) == heroi);
+                if (p == true) {
+                    heroi.usarPocao();
+                    heroi.mostrarDetalhes();
+                    System.out.println("Parabéns, vai avançar para Cidade Futurista ");
+                    labirinto(11, heroi);
 
+                } else reset("Game Over!!!");
                 break;
+
             case 11:
-
-
-                break;
-            case 12:
-
-
-                break;
-            default:
-
+                System.out.println("\nBem-vindo à Metrópole Aeroportuária de NeoTokyo!");
+                System.out.println("Esta cidade futurista é um centro de inovação e movimentação constante.");
+                System.out.println("Parabéns! Você chegou ao final do jogo e é o vencedor!");
+                System.out.println("Obrigado por jogar!");
+                System.exit(0);
                 break;
         }
 
-        if (!p) {
-            return false;
-        } else {
-            return true;
-        }
+        return true;
     }
-
-
 }
+
+
+
 
 //! APÓS A CONCLUSÃO FAZER JAVADOC!
