@@ -18,43 +18,38 @@ public class Cavaleiro extends Heroi {
      */
     @Override
     public Entidade atacar(NPC npc) {
+        while (this.getVida() > 0 && npc.getVida() > 0) {
+            int danoInimigo = (int) (npc.getForca() * 0.8);
+            this.subtrairVida(danoInimigo);
+            System.out.println("A vida do Herói após o ataque sofrido é " + this.getVida());
 
-
-        while (this.getVida() >= 0 && npc.getVida() >= 0) {
-            // O inimigo ataca primeiro (80% da força original)
-            int danoInimigo = (int) (npc.getForca() * 0.8); // sofre apenas 80% do dano porque ele tem armardura
-            this.subtrairVida(danoInimigo); // que é a quantidade passada no parametro da funcao na classe Heroi
-            System.out.println(this.getVida());
-
-            // Verifica se o herói ainda está vivo
             if (this.getVida() <= 0) {
                 System.out.println("O herói foi derrotado.");
-
             } else {
-                // O herói ataca
                 int danoHeroi = this.getForca() + this.getArma().getAtaque();
                 npc.setVida(npc.getVida() - danoHeroi);
-                System.out.println(npc.getVida());
-                //npc.subtrairVida(danoHeroi);
+                System.out.println("A vida do inimigo após o ataque do herói é " + npc.getVida());
 
-                // Verifica se o inimigo ainda está vivo
                 if (npc.getVida() <= 0) {
                     System.out.println("O herói venceu!");
-                    this.subirNivel();
-                    this.incrementarVida(10);
-                    this.incrementarForca(1);
-                    this.incrementarOuro(10);
-
                 }
             }
         }
+
         if (npc.getVida() <= 0) {
-            System.out.println("O herói venceu!");
+            System.out.println("Estou aqui");
+            this.subirNivel();
+            this.incrementarVida(10);
+            this.incrementarForca(1);
+            this.incrementarOuro(10);
+            System.out.println("O herói subiu para o nível " + this.getNivel() + "!");
+            System.out.println("A vida do herói aumentou em 10 pontos.");
+            System.out.println("A força do herói aumentou em 1 ponto.");
+            System.out.println("O herói recebeu 10 moedas de ouro.");
             return this;
         } else {
             return npc;
         }
-
     }
 
 
