@@ -1,40 +1,35 @@
 package Singleton2;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
 public class Logger {
     private static Logger instance; // Instância única da classe Singleton2.Logger
-    private File fileName; // Nome do arquivo de log
+    private String connectionString; // Nome do arquivo de log
 
     /**
-     * Construtor
-     * @param fileName
+     * Construtor privado
+     * @param connectionString
      */
-    private Logger(String fileName) { // Construtor privado para evitar criação de instâncias diretas
-        File file = new File(fileName);
+    private Logger(String connectionString) { // Construtor privado para evitar criação de instâncias diretas
+        this.connectionString = connectionString;
     }
 
 
     /**
      * Singleton
-     * @param fileName
+     * @param connectionString
      * @return
      */
-    public static synchronized Logger getInstance(String fileName) { // Método estátiv  co para obter a instância única da classe Singleton2.Logger
+    public static synchronized Logger getInstance(String connectionString) { // Método estátiv  co para obter a instância única da classe Singleton2.Logger
         if (instance == null) { // Verifica se a instância ainda não foi criada
-            instance = new Logger(fileName); // Cria uma nova instância
+            instance = new Logger(connectionString); // Cria uma nova instância
         }
         return instance; // Retorna a instância existente ou a recém-criada
     }
 
-    public void log(String message) {                   // Método para gravar uma linha de log no arquivo
-        try (PrintWriter writer = new PrintWriter(new FileWriter(fileName, true))) {
-            writer.println(message);                    // Grava a mensagem no arquivo
-        } catch (IOException e) {
-            e.printStackTrace();
+        public void log(String String) {
+        // Código para conectar à base de dados usando a connectionString
+            System.out.println("log message: " + log);
         }
-    }
 }
