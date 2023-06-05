@@ -14,11 +14,5 @@ public class Main {
         // Verificação se as duas variáveis referenciam a mesma instância do UserSessionManager
         System.out.println(sessionManager1 == sessionManager2); // Imprime "true" (as duas variáveis referenciam a mesma instância)
 
-        /*
-         * A saída esperada é:
-         * log message: Log message 1
-         * log message: Log message 2
-         * true
-         */
     }
 }
