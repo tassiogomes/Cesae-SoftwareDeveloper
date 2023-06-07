@@ -1,3 +1,5 @@
+package ex1;
+
 import org.example.ex1.Calculator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

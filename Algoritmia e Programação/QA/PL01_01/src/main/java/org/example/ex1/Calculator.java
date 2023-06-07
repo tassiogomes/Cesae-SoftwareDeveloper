@@ -1,4 +1,4 @@
-package org.example;
+package org.example.ex1;
 
 public class Calculator {
     public int add(int a, int b) {
