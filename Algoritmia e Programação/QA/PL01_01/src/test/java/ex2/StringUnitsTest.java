@@ -10,7 +10,6 @@ public class StringUnitsTest {
     private StringUtils stringUtils;
 
 
-
     @Test
     public void testIsPalindrome(){
         // duas formas de fazer a mesma coisa, asserTrue ou asserEquals
