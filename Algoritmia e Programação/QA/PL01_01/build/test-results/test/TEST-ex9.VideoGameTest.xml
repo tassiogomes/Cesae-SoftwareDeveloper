@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ex8.ShoppingCartTest" tests="4" skipped="0" failures="1" errors="0" timestamp="2023-06-14T13:26:52" hostname="DESKTOP-VA7T9KO" time="0.017">
+<testsuite name="ex9.VideoGameTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-06-14T14:55:53" hostname="DESKTOP-VA7T9KO" time="0.013">
   <properties/>
-  <testcase name="testAddItem()" classname="ex8.ShoppingCartTest" time="0.011"/>
-  <testcase name="testContainsItem()" classname="ex8.ShoppingCartTest" time="0.001"/>
-  <testcase name="testClearCart()" classname="ex8.ShoppingCartTest" time="0.002">
-    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;0&gt;
+  <testcase name="testCalculateProfit()" classname="ex9.VideoGameTest" time="0.013">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;96.0&gt; but was: &lt;95.0&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;96.0&gt; but was: &lt;95.0&gt;
 	at app//org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at app//org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
-	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
-	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
-	at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:527)
-	at app//ex8.ShoppingCartTest.testClearCart(ShoppingCartTest.java:43)
+	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:70)
+	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:65)
+	at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:885)
+	at app//ex9.VideoGameTest.testCalculateProfit(VideoGameTest.java:48)
 	at java.base@18.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base@18.0.2/java.lang.reflect.Method.invoke(Method.java:577)
 	at app//org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:725)
@@ -94,7 +92,6 @@
 	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 </failure>
   </testcase>
-  <testcase name="testeRemoveItem()" classname="ex8.ShoppingCartTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
