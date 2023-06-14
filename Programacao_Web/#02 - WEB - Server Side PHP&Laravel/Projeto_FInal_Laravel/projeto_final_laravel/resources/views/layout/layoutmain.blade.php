@@ -17,15 +17,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="/">Principal</a>
-          <a class="nav-link" href="/sobrenos">Sobre nós</a>
-          <a class="nav-link" href="/contato">Contato</a>
+          <!-- a class="nav-link active" aria-current="page" href="/">Principal</-a>  nesse se usa o href com endereço absoluto--> 
+          <a class="nav-link active" aria-current="page" href="{{ route('site.index') }}">Principal</a> <!-- Dessa forma usa a função route que recebe o nome(apelido depois do ->name) da rota -->
+          <a class="nav-link" href="{{ route('site.sobrenos') }}">Sobre nós</a>
+          <a class="nav-link" href="{{ route('site.contato') }}">Contato</a>
           <a class="nav-link disabled">Disabled</a>
         </div>
       </div>
     </div>
   </nav>
-
 @yield('content')
 @yield('endcontent')
 

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\TesteController;
+use App\Http\Controllers\FornecedorController;
 
 
 /*
@@ -22,15 +24,37 @@ use App\Http\Controllers\ContatoController;
 
 Route::get('/', 
 [PrincipalController::class, 'principal']
-)->name('principal');
+)->name('site.index');
 
 Route::get('/sobrenos', 
 [SobreNosController::class, 'sobreNos']
-)->name('sobrenos');;
+)->name('site.sobrenos');
 
 Route::get('/contato', 
-[ContatoController::class, 'Contato']
-)->name('contato');;
+[ContatoController::class, 'contato']
+)->name('site.contato');
+
+Route::get('/login', function(){
+    return 'return function callback login';
+})->name('site.login');
+
+
+/******** ROTAS AGRUPADAS **********/
+
+Route::prefix('/app')->group(function(){ /* a função prefix tem que receber um prefixo pra agrupar, nesse caso '/app', após isso foi chamado o método group que recebe uma função de callback */
+    Route::get('/clientes', function(){
+        return 'return function callback clientes';
+    })->name('app.clientes');
+    
+    Route::get('/fornecedores', 
+    [FornecedorController::class, 'index']
+    )->name('app.fornecedores');
+    
+    Route::get('/produtos', function(){
+        return 'return function callback produtos';
+    })->name('app.produtos');
+});
+
 
 
 /******* ROTAS PARA TESTES *********/
@@ -46,18 +70,25 @@ Route::get('/contato/{nome}/{sobrenome?}',
     echo "Estamos aqui na rota de teste contato:  $nome -  $sobrenome";}
 );
 
+Route::get('/teste/{p1}/{p2}',
+[TesteController::class, 'teste']
+)->name('teste');
 
+/******* REDIRECIONAMENTO DE ROTAS **********/
 
+Route::get('/rota1', function(){
+    return 'return function callback rota1';
+})->name('site.rota1');
 
+Route::get('/rota2', function(){
+    return redirect()->route('site.rota1');
+})->name('site.rota2');
 
+/********** ROTA  DE CONTINGÊNCIA  *********/
 
-
-
-
-
-
-
-
+Route::fallback(function(){
+    return "return da rota fallback (rota que não existe) <a href='".route('site.index')."'> clique aqui </a>";
+});
 
 
 
